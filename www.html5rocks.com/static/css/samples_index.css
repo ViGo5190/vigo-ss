@@ -1,11 +1,10 @@
+@charset "UTF-8";
+
 img.logo {
   display: block; 
   margin: 10px auto;
 }
-#index {
-  margin-top: 40px;
-  width: 75%;
-}
+
 #tags {
   float: right;
   width: 20%;
@@ -40,11 +39,15 @@ img.logo {
 
 .sample {
   padding: 10px 0;
-  border-bottom: 1px solid #E9EEFA;
+  border-bottom: 1px solid #E9EEFA; 
+       -moz-transition: all 0.3s ease-out;  
+         -o-transition: all 0.3s ease-out;  
+    -webkit-transition: all 0.3s ease-out;  
+   
 }
 
 .sample:hover {
-  background-color: #f5f5f5;
+  background-color: rgba(255,255,255,0.3);
 }
 
 #index h2 { 
@@ -59,6 +62,7 @@ h2 {
 h2 a {
   color: #2E4987;
   text-decoration: none;
+  border: 0;
 }
 
 h2 a:hover {
@@ -73,4 +77,10 @@ h2 a:hover {
 a.buttonlink {
   color: #8797BC;
   display: block;
+   border: 0;
+   padding: 3px 3px 0;
+   text-align:right;
 }
+a.buttonlink::after {
+    content : ' →';
+} 

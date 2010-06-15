@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="tutorial">
 <!-- copyright (c) 2010 Google inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,6 +22,7 @@
 <head>
   <title>html5rocks - {% block headtitle %}{% endblock %}</title>
   <link rel="stylesheet" href="/static/css/base.css" />
+  <link rel="stylesheet" href="/static/css/prettify.css" />
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Vollkorn|Droid+Serif">
   <meta name="description" content="{% block meta_description %}{% endblock %}" />
   <script src="/static/js/modernizr-1.1.min.js"></script>
@@ -38,7 +39,24 @@
 <body onload="{% block onload %}{% endblock %}">
   <div id="wrap">
     <div id="content">
-      <h1 id="title"><span class="normal">HTML</span><span class="normal">5</span> <span class="rotated">Tutorials</span></h1>
+      <h1 id="title"><span class="rotated">Tutorials</span></h1>
+      
+      <nav>
+          <div class="app"> 
+      		<img src="/static/images/easywand.svg" > 
+              <p class="title"><a href="http://slides.html5rocks.com/">Interactive Presentation</a></p> 
+            </div> 
+            <div class="app"> 
+              <img src="/static/images/chrome.svg"> 
+              <p class="title"><a href="">Code Playground</a></p> 
+            </div> 
+            <div class="app current"> 
+              <img src="/static/images/hammer.svg"> 
+              <p class="title"><a href="/samples/">Step by Step Tutorials</a></p> 
+            </div> 
+      </nav>
+      
+      
       <p class="breadcrumb">
         <a class="buttonlink" href="/">
           <span>Home</span> 
@@ -64,6 +82,19 @@
       </div>
       {% toc %}
       {% block content %}{% endblock %}
+      
+      <p style="margin-top: 20px; font-size: 18px;"><a href="/samples/">&larr; Return to tutorials</a></p>
+      
+      
+      <footer> 
+        <p class="madeby">Made by Google | <img style="margin-bottom: -6px;" src="http://www.corp.google.com/~ernestd/no_crawl/h5r_designs/p5_files/logo_small.png"></p> 
+        <a href="http://www.html5rocks.com/">Home</a> - <a href="http://localhost:8083/main_prev.html#">Site Terms of Service</a> -
+        <a href="http://localhost:8083/main_prev.html#">Privacy Policy</a> -
+        <a href="http://tutorials.html5rocks.com/">Tutorials</a> -
+        <a href="http://slides.html5rocks.com/">Slides</a> -
+        <a href="http://code.google.com/p/html5playground/issues/list" target="_blank">Report Bug</a> 
+
+      </footer>
     </div>
   </div>
   <script>
@@ -76,6 +107,8 @@
       window.location = '/';
     });
   </script>
+	<script src="/static/js/prettify.js"></script>
+	<script> window.prettyPrint && 	prettyPrint(); </script>
   <script type="text/javascript">
     var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." :
     "http://www.");
