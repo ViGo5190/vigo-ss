@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+
+{% block headtitle %}Samples Index{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" href="/static/css/samples_index.css" />
+
+
+  <script src="/static/js/raphael-min.js" ></script>
+
+  <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+  <script>
+    google.load("jquery", "1.4.2");
+
+    function clearFilter() {
+      $(".sample.hidden").removeClass('hidden');
+      $("#filter").addClass('hidden');
+    };
+    
+    function filterTag() {
+      var tag = $(this).text();
+      $(".sample span.tag:not(:contains('" + tag + "'))").closest('.sample').addClass('hidden');
+      $(".sample span.tag:contains('" + tag + "')").closest('.sample').removeClass('hidden');
+      $('#filter_tag').text(tag);
+      $('#filter').removeClass('hidden');
+    };
+  </script>
+{% endblock %}
+
+{% block body %}
+
+
+
+
+
+
+
+  <style type="text/css" media="screen"> 
+ 
+  </style> 
+ 
+<div id="wrap"> 
+  <div id="content"> 
+     
+        </style> 
+        <h1 id="title"><span class="normal">HTML</span><span class="normal five">5</span> <span class="rotated">Rocks</span></h1> 
+    <div id="filter" class="hidden"> 
+      Currently filtering by tag <span id="filter_tag"></span>.
+      <a href="javascript:clearFilter();">Click here to clear</a>.
+    </div> 
+ 
+    
+    <style type="text/css" media="screen"> 
+    </style> 
+    <div id="index"> 
+      <div class="app"> 
+	
+		<img src="/static/images/easywand.svg" >
+        <p class="title"><a href="http://slides.html5rocks.com/">Interactive Presentation</a></p> 
+        <p class="desc">See HTML5 features in action and spread the word.</p> 
+        <a href="#" class="morelink">View presentation</a>
+      </div> 
+      <div class="app"> 
+        <img src="/static/images/chrome.svg"> 
+        <p class="title"><a href="">Code Playground</a></p> 
+        <p class="desc">The fastest way to jump head first into HTML5 code.</p> 
+         <a href="#" class="morelink">Visit playground</a>
+      </div> 
+      <div class="app"> 
+        <img src="/static/images/hammer.svg"> 
+        <p class="title"><a href="/samples/">Step by Step Tutorials</a></p> 
+        <p class="desc">Start and learn the basics, step by step.</p> 
+         <a href="#" class="morelink">Read tutorials</a>
+      </div> 
+    
+    
+      <div class="updates">
+         <h5>Latest additions</h5>
+         <ul>
+             <li><a href="#"><time>June 21</time> A Simple Trip Meter using the Geolocation API</a></li>
+             <li><a href="#"><time>June 21</time> How to use Notifications API</a></li>
+             <li><a href="#"><time>June 22</time> A Simple TODO list using HTML5 WebDatabases</a></li>
+             <li><a href="#"><time>June 24</time> Quick Guide to Implement the HTML5 Audio Tag</a></li>
+         </ul>
+         <a href="#">Follow @html5rocks on twitter</a>
+        </div>
+
+        <div class="chromeframe"> 
+          <p>Ready to develop in HTML5 but worried about your IE users? Just put <a href="">Chrome Frame</a> in your websites. It's this easy:
+	<pre>&lt;meta http-equiv="X-UA-Compatible" content="chrome=1"></pre>
+	<a href="#">Learn more about Chrome Frame and putting it to use</a></p> 
+        </div>        
+      </div> 
+      
+      
+   
+          <div class="resources"> 
+            <h5>HTML5 Resources</h5>
+  		  <ul>
+  			  <li><a href="http://dev.w3.org/html5/spec-author-view/">W3C HTML5 Author Spec</a></li>
+
+              <li><a href="http://html5doctor.com/">HTML5 Doctor</a></li>
+              <li><a href="http://blog.whatwg.org/">WhatWG Blog</a></li>
+              <li><a href="http://diveintohtml5.org/">Dive into HTMl5 by Mark Pilgrim</a></li>
+              
+              <li><a href="http://caniuse.com/">When Can I Use...</a></li>
+              <li><a href="http://www.modernizr.com/">Modernizr</a></li>
+              <li><a href="http://code.google.com/p/html5shiv/">html5shiv on code.google.com</a></li>
+
+              <li><a href="http://www.html5test.com/">html5test.com</a></li>
+              <li><a href="http://css3watch.com/">CSS3 Watch</a></li>
+              <li><a href="http://html5watch.tumblr.com/">HTML5 Watch</a></li>
+
+              <li><a href="http://westciv.com/tools/">WestCiv CSS3 Tools</a></li>
+              <li><a href="http://www.fontsquirrel.com/fontface/generator">Font Squirrel Generator</a></li>
+              <li><a href="http://css3please.com/">CSS3 Please!</a></li>
+
+
+              <li><a href="http://en.wikipedia.org/wiki/Comparison_of_layout_engines_(HTML5)">Wikipedia: Comparison of layout engines (HTML5)</a></li>
+              
+              
+              <li><a href="https://groups.google.com/a/chromium.org/group/chromium-html5/topics">Chromium HTML5 mailing list</a></li>
+              <li><a href="http://www.chromium.org/developers/web-platform-status">Chromium Web Platform status</a></li>
+  		</ul>
+          </div> 
+
+  	      <h5>Contribute</h5>
+                 <p>Both the <a href="http://localhost:8083/main_prev.html#">playground</a> and the <a href="http://localhost:8083/main_prev.html#">slides</a> are open source projects. You can tweak the code or contribute new guides.</p> 
+
+    
+  	
+  
+    <footer> 
+      <p class="madeby">Made by Google | <img style="margin-bottom: -6px;" src="http://www.corp.google.com/~ernestd/no_crawl/h5r_designs/p5_files/logo_small.png"></p> 
+      <a href="http://www.html5rocks.com/">Home</a> - <a href="http://localhost:8083/main_prev.html#">Site Terms of Service</a> -
+      <a href="http://localhost:8083/main_prev.html#">Privacy Policy</a> -
+      <a href="http://tutorials.html5rocks.com/">Tutorials</a> -
+      <a href="http://slides.html5rocks.com/">Slides</a> -
+      <a href="http://code.google.com/p/html5playground/issues/list" target="_blank">Report Bug</a> 
+      
+    </footer>    
+    <!-- <div id="name">
+      http://www.googleapis.com/buzz/v1/activities/search?q=html5
+      http://search.twitter.com/search.atom?q=html5
+    </div> --> 
+  </div> 
+</div> 
+
+
+<script>
+  $('.tag').click(filterTag);
+  $('#index div.app').css('cursor','pointer').live('click',function(){
+          var url = $(this).find('a:first').attr('href');
+          location.href = url;
+   });
+   
+   $('.resources a').each(function() {
+      var $this = $(this), 
+          favLink = $this.attr('href');
+            
+      favLink && $this
+          .parent('li')
+          .prepend([
+            '<img style="margin-right:3px;vertical-align:middle" src="//getfavicon.appspot.com/',
+            escape(favLink),
+            '" width="16" height="16" />'
+          ].join(''));
+    });
+
+</script>
+{% endblock %}
+
