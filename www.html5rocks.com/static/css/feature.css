@@ -1,0 +1,106 @@
+
+h2 {
+  font-size: 28px;
+  font-family: 'Droid Sans', sans-serif;
+}
+.description {
+  font-size: 15px;
+}
+.description img {
+  float: right;
+  border: 1px solid #eee; 
+  padding: 2px;
+  margin: 0 0 10px 10px;
+  height: 140px;
+}
+hgroup {
+  border-bottom: 1px solid #ddd;
+}
+hgroup > h4 {
+  margin: 0;
+  color: #aaa;
+  text-shadow: rgba(200,200,200,.5) 0px 0px 2px;
+}
+hgroup > h3 {
+  font-size: 20px;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+hgroup {
+  font-family: 'Droid Sans';
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+.column {
+  float:left; 
+  width: 48%;
+  margin-right: 2%;
+}
+.column:last-child {
+  margin-right: 0%;
+}
+
+section {
+  margin-bottom: 34px;
+}
+
+section:last-of-type {
+  margin-bottom: 2em;
+}
+section ul {
+  padding: 5px 18px;
+}
+section li {
+  padding: 3px 0;
+}
+section figure {
+  width: 170px;
+  padding:  0 0px 0px 10px;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+}
+
+section figure:nth-child(2n+1) {
+  padding:  0;
+}
+
+section img { 
+  border: 1px solid #eee;
+       -moz-box-shadow: 0px 7px 6px -4px #888; 
+    -webkit-box-shadow: 0px 7px 6px -4px #888; 
+            box-shadow: 0px 7px 6px -4px #888; 
+            
+  height: auto !important;
+  width: 165px !important;
+}
+
+figcaption {
+  font-style: normal;
+}
+
+.demos {
+  clear: both;
+}
+
+.tutorials ul:empty, 
+.tutorials ul:empty + p {
+  display: none;
+}
+
+.clearfix:after  { 
+  content: "\0020"; 
+  display: block; 
+  height: 0; 
+  clear: both; 
+  visibility: hidden; 
+}
+
+.clearfix { 
+  zoom: 1; 
+}
+
+dd { 
+  margin: 2px 0 18px 5px;
+}
