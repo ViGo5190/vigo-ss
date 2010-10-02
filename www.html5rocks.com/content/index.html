@@ -1,0 +1,264 @@
+{% extends "../templates/base.html" %}
+
+{% block headtitle %}A resource for open web HTML5 developers{% endblock %}
+
+{% block head %}
+  <link rel="alternate" type="application/rss+xml" title="HTML5Rocks" href="http://feeds.feedburner.com/html5rocks" />
+  <style>
+    #index {
+      overflow: hidden;
+      margin-bottom: 0;
+      padding: 20px 3px;
+      border-bottom: 1px solid #ddd;
+    }
+    #index  a {
+      text-decoration: none;
+      float: left;
+      outline: 0;
+    }
+    #index img {
+      width: 70px;
+      padding-top: 10px;
+    }
+    #index div.app, .feed-section div.app {
+      font-family: Helvetica, sans-serif;
+      height: 160px;
+      width: 150px;
+      text-align: center;
+      padding: 13px 10px;
+      margin: 0 5px;
+      background: -moz-linear-gradient(90deg, #eee, #fff, #eee);
+      background: -webkit-gradient(linear, left top, left bottom, from(#eee), color-stop(0.5, #fff), to(#eee));
+      border: 3px solid #e1e1e1;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 15px;
+      -webkit-transition: -webkit-box-shadow 0.10s ease-in-out;
+      -moz-transition: all 0.10s ease-in-out;
+      -o-transition: all 0.10s ease-in-out;
+      cursor: pointer;
+    }
+    .feed-section div.feature {
+      border-width: 2px;
+    }
+    #index div.app:hover, .feed-section div.app:hover {
+      border-color: #e1e1e1;
+      -webkit-box-shadow: #666 0px 0px 6px;
+      -moz-box-shadow: #666 0px 0px 6px;
+      box-shadow: #666 0px 0px 6px;
+      background: -webkit-gradient(linear, left top, left bottom, from(#e1e1e1), color-stop(0.5, #fff), to(#e1e1e1));
+    }
+    .feed-section div.feature:hover {
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow:  none;
+    }
+    .feed-section div.app {
+      display:inline-block;
+      width: 155px;
+      height: 32px;
+      margin: 3px;
+      padding: 0;
+      text-align: center;
+    }
+
+    .feed-section div.app a {
+      padding: 10px;
+      display:block;
+    } 
+    
+    .feed-section div.app a:hover {
+      text-decoration: none;
+      color: #1D3C7D;
+    }
+    
+    .app h2 {
+      text-transform: uppercase;
+      padding: 0;
+      margin: 0;
+      font-weight: bold;
+      line-height: 0.8em;
+      font-size: 17px;
+    }
+    .app h2 span {
+      font-size: 17px;
+      display: block;
+      margin-bottom: 5px;
+    }
+    .appcontent { clear: both; }
+    .appcontent span {
+      color: #222;
+      font-weight: normal;
+    }
+    .desc { 
+      font-size: 13px;
+      color: #666;
+      margin-top: 0;
+    }
+    .fl { float: left; }
+    .fr { float: right; }
+    .clear { clear: both; }
+    .feed-section { width: 50%; }
+    .feed-section > *,
+    .info-section > *  {
+      padding-left: 5px;
+    }
+    .feed-section ul {
+      list-style: none;
+      margin-left: 0;
+      color: #666;
+      line-height: 1.5em;
+    }
+    .feed-section h2,
+    .info-section h2 {
+      padding: 24px 0 7px 5px;
+      color: #000;
+      font-size: 15px;
+      text-transform: uppercase;
+      font-weight: normal;
+      display: block;
+    }
+    .feed-section h2 img {
+      vertical-align: top;
+    }
+    .info-section p {
+      margin-left: 0;
+      color: #666;
+      line-height: 1.5em;
+    }
+    .chrome-section {
+      clear: both;
+      background-color: #eee;
+      padding: 10px 20px;
+      font-size: 13px;
+      margin: 20px 0;
+      -webkit-border-radius: 15px;
+      -moz-border-radius: 15px;
+      border-radius: 15px;
+    }
+    #latest_articles_feed li {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .madeby {
+      float: right;
+      width: 30%;
+      margin: 0;
+      text-align: right;
+    }
+  </style>
+{% endblock %}
+
+{% block body %}
+{% include "../templates/header.html" %}
+  <section id="index">
+    <a href="http://slides.html5rocks.com">
+      <div class="app">
+        <div class="appcontent">
+          <h2><span>Interactive</span> Presentation</h2>
+          <img src="/static/images/html5rocks-presentation.png" width="70" height="70" />
+          <p class="desc">Watch the slideshow that lets you play with HTML5 features.</p>
+        </div>
+      </div>
+    </a>
+    <a href="http://playground.html5rocks.com">
+      <div class="app">
+        <div class="appcontent">
+          <h2><span>Code</span> Playground</h2>
+          <img src="/static/images/html5rocks-playground.png" width="70" height="70" />
+          <p class="desc">Jump headfirst into HTML5 by experimenting with each API.</p>
+        </div>
+      </div>
+    </a>
+    <a href="http://studio.html5rocks.com">
+      <div class="app">
+        <div class="appcontent">
+          <h2><span>Samples</span> Studio</h2>
+          <img src="/static/images/html5rocks-studio.png" width="70" height="70" />
+          <p class="desc">A showroom of content that you can reuse in your own site.</p>
+        </div>
+      </div>
+    </a>
+    <a href="/tutorials/">
+      <div class="app">
+        <div class="appcontent">
+          <h2><span>Step by Step</span> Tutorials</h2>
+          <img src="/static/images/html5rocks-tutorials.png" width="70" height="70" />
+          <p class="desc">Take a guided tour through code that uses HTML5 features.</p>
+        </div>
+      </div>
+    </a>
+  </section>
+  <section class="clear fl feed-section">
+    <h2>Learn by major HTML5 feature groups</h2>
+    <div class="app feature">
+      <a href="/features/offline">Offline</a>
+    </div>
+    <div class="app feature">
+      <a href="/features/file">File Access</a>
+    </div>
+    <div class="app feature">
+      <a href="/features/multimedia">Multimedia</a>
+    </div>
+    <div class="app feature">
+      <a href="/features/performance">Performance</a>
+    </div>
+    <div class="app feature">
+     <a href="/features/presentation">Presentation</a>
+    </div>
+    <div class="app feature">
+     <a href="/features/graphics">Graphics</a>
+    </div>
+  </section>
+  <section class="fr feed-section">
+    
+    <h2><a href="/tutorials/">Latest Tutorials</a> <a href="http://feeds.feedburner.com/html5rocks"><img src="/static/images/feed_icon16x16.png" width="16" height="16" /></a></h2>
+    <ul id="latest_articles_feed"><li><i>loading feed...</i></li></ul>
+    
+
+  </section>
+  
+  
+  <section class="clear info-section">
+    <h2>Contribute</h2>
+    <p>This site, the HTML5 <a href="http://playground.html5rocks.com">Playground</a>, <a href="http://studio.html5rocks.com">Studio</a>,
+    and <a href="http://slides.html5rocks.com">Presentation</a> slides are all <a href="http://code.google.com/p/html5rocks/">open source projects</a>.
+    Tweak the code or <a href="http://code.google.com/p/html5rocks/wiki/ContributorsGuide">contribute</a> new guides!</p>
+  </section>
+  <section class="chrome-section">
+    <p>Ready to develop in HTML5 but worried about supporting older versions of Internet Explorer?
+    Learn how <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a> can help. It's easy to include
+    on your site:</p>
+    <pre class="prettyprint">&lt;meta http-equiv="X-UA-Compatible" content="chrome=1"&gt;</pre>
+  </section>
+
+  {% include "../templates/footer.html" %}
+
+  <script>
+    function processFeedResponse(result) {
+      var container = document.getElementById('latest_articles_feed');
+
+      if (!container) {
+        return;
+      }
+
+      if (!result.responseData) {
+        container.innerHTML = '<li>' + result.responseDetails + '<\/li>';
+        return;
+      }
+
+      var html = [];
+      for (var i = 0, entry; entry = result.responseData.feed.entries[i]; ++i) {
+        var date = new Date(entry.publishedDate);
+        var formattedDateStr = date.getUTCMonth() + 1 + '/' + date.getUTCDate();
+
+        html.push('<li>', formattedDateStr, ' <a href="', entry.link, '">',
+                  entry.title, '<\/a><\/li>')
+      }
+      container.innerHTML = html.join('');
+    }
+  </script>
+  <script src="http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&amp;num=6&amp;q={{host}}/tutorials/index.xml&amp;callback=processFeedResponse"></script>
+
+{% endblock %}
