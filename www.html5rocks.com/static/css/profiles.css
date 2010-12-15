@@ -60,6 +60,7 @@ section[itemtype="http://microformats.org/profile/hcard"] a {
 }
 
 .urls li { display: inline; }
+
 .urls a[data-type="homepage"][href^="http"] {
   background-image: url('/static/images/home.png');
   background-position: center center;
@@ -94,6 +95,7 @@ img[itemprop="photo"] {
   bottom: -20px;
 }
 
+
 [itemprop="locality"] { display: none; }
 .urls, [itemprop="org"],[itemprop="adr"] { margin: 0 20px 10px; text-align: right; float: right; clear: both; }
 [itemprop="org"] { margin-top: 20px; font-family: Tangerine; color: white; font-size: 24px; }
@@ -113,4 +115,3 @@ div[itemprop=geo] {
   text-align: right;
   font-family: serif;
 }
-
