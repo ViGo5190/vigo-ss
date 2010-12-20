@@ -1,3 +1,5 @@
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
 <!DOCTYPE html>
 <html{% block manifest %}{% endblock %} lang="{{LANGUAGE_CODE}}" dir="{{LANGUAGE_BIDI|yesno:"rtl,ltr"}}">
 <head>
