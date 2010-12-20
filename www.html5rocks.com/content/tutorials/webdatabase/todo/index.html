@@ -1,7 +1,7 @@
 {% extends "../../../../templates/sample.html" %}
 
 {% block headauthor %}Paul Kinlan{% endblock %}
-{% block pageauthor %}Paul Kinlan{% endblock %}
+{% block pageauthor %}{% profilelinks paulkinlan %}{% endblock %}
 {% block headtitle %}A Simple TODO list using HTML5 WebDatabases{% endblock %}
 {% block pagetitle %}A Simple TODO list using HTML5 WebDatabases{% endblock %}
 {% block pagebreadcrumb %}A Simple TODO list using HTML5 WebDatabases{% endblock %}
@@ -115,13 +115,13 @@
     have the ability to work online and off-line.
   </p>
   <p>
-    On November 18, 2010, the <a href="http://www.w3.org/TR/webdatabase/">W3C announced</a> that Web SQL 
-    database is a deprecated specification. This is a recommendation for web
-    developers to no longer use the technology as effectively the spec will
-    receive no new updates and browser vendors aren't encouraged to support this
-    technology.  Many major browsers including Chrome, Safari, Opera and nearly 
-    all Webkit based mobile devices support WebSQL and will likely maintain 
-    support.
+    On November 18, 2010, the <a href="http://www.w3.org/TR/webdatabase/">W3C
+    announced</a> that Web SQL database is a deprecated specification. This is a
+    recommendation for web developers to no longer use the technology as
+    effectively the spec will receive no new updates and browser vendors aren't
+    encouraged to support this technology. Many major browsers including Chrome,
+    Safari, Opera and nearly all Webkit based mobile devices support WebSQL and
+    will likely maintain support for the foreseeable future.
   </p>
   <p>
     This tutorial is also <a href="/tutorials/indexeddb/todo/index.html">

@@ -1,7 +1,7 @@
 {% extends "../../../../templates/sample.html" %}
 
 {% block headauthor %}Paul Kinlan{% endblock %}
-{% block pageauthor %}{% endblock %}
+{% block pageauthor %}{% profilelinks paulkinlan %}{% endblock %}
 {% block headtitle %}A Simple TODO list using HTML5 IndexedDB{% endblock %}
 {% block pagetitle %}A Simple TODO list using HTML5 IndexedDB{% endblock %}
 {% block pagebreadcrumb %}A Simple TODO list using HTML5 IndexedDB{% endblock %}
@@ -315,9 +315,9 @@ html5rocks.indexedDB.open = function() {
     the <code>IDBRequest</code> object before the callbacks are executed.
 </p>
 <p>
-    If the open request is successful, our "onsuccess" callback is exectued.
-    In this callback we check the database version and if it is not the same
-    as the number we expect, we call "setVersion".</p>
+    If the open request is successful, our <code>onsuccess</code> callback is 
+    exectued. In this callback we check the database version and if it is not 
+    the same as the number we expect, we call "setVersion".</p>
 <p> 
     SetVersion <em>is the only place</em> in our code that we can alter the
     structure of the database. In it we can create and delete Object Stores and
@@ -329,9 +329,9 @@ html5rocks.indexedDB.open = function() {
     Object Stores are created with a single call to 
     <code>createObjectStore</code>. The method takes a name of the store, and an
     parameter object. The parameter object is very important, it lets you
-    define important optional properties. In our case, we define a "keyPath"
-    that is the property that makes an individual object in the store
-    unique. That property in this example is "timeStamp". "timeStamp"
+    define important optional properties. In our case, we define a
+    <code>keyPath</code> that is the property that makes an individual object in
+    the store unique. That property in this example is "timeStamp". "timeStamp"
     <em>must</em> be present on every object that is stored in the objectStore.
 </p>
 <p>
@@ -365,8 +365,8 @@ html5rocks.indexedDB.open = function() {
 
   <p>
     The <code>addTodo</code> method is pretty simple, we first get a quick
-    reference to the database object, initiate a READ_WRITE transaction and get
-    a reference to our object store.
+    reference to the database object, initiate a <code>READ_WRITE</code>
+    transaction and get a reference to our object store.
   </p>
   <p>
     Now that the application has access to the Object Store, we can issue a 
@@ -447,9 +447,10 @@ html5rocks.indexedDB.open = function() {
   };
 };</pre>
   <p>
-    As with the code to "put" data into an Object Store, deleting data is as
-    simple. Start a transaction, reference the Object Store with your
-    object in and issue a "delete" command with the unique ID of your object.
+    As with the code to <code>put</code> data into an Object Store, deleting 
+    data is as simple. Start a transaction, reference the Object Store with your
+    object in and issue a <code>delete</code> command with the unique ID of your
+    object.
   </p>
   <h2 id="toc-step6">Step 6. Hooking it all up</h2>
   <p>

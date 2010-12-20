@@ -1,7 +1,7 @@
 {% extends "../../../../templates/base.html" %}
 
 {% block body %}
-  {% include "../../../../templates/section_header.html" %}
+  {% include "../../../../templates/header.html" %}
   <nav>
       <p class="breadcrumb">
         <a class="buttonlink" href="/">
@@ -17,8 +17,11 @@
       <h1>{% block pagetitle %}{% endblock %}</h1>
       <div>
         <span class="date">
-          {% block pageauthor %}{% endblock %}, <time pubdate>{% block date %}{% endblock %}</time>
-          <time class="updated">{% block updated %}{% endblock %}</time>
+          {% block pageauthor %}{% endblock %}
+          <div>
+            <time pubdate>{% block date %}{% endblock %}</time>
+            <time class="updated">{% block updated %}{% endblock %}</time>
+          </div>
         </span>
         <span id="share_buttons">
           <ul>

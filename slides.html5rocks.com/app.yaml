@@ -1,11 +1,14 @@
 application: html5slides
-version: 4
+version: 4-2
 runtime: python
 api_version: 1
 
 handlers:
 - url: /src
   static_dir: src
+
+- url: /css
+  static_dir: css
 
 - url: /disclaimer.html
   static_files: disclaimer.html
