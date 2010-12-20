@@ -20,6 +20,7 @@ __author__ = ('kurrik@html5rocks.com (Arne Kurrik) ',
 import datetime
 import logging
 import os
+import re
 
 # Libraries
 import html5lib
@@ -32,8 +33,8 @@ from google.appengine.ext.webapp import util
 from google.appengine.ext.webapp import template
 from google.appengine.api import memcache
 
-from django.utils import feedgenerator
-
+from django.utils import feedgenerator, translation
+from cookies import Cookies
 # Loading settings for i18n
 os.environ['DJANGO_SETTINGS_MODULE'] = 'conf.settings'
 from django.conf import settings
@@ -41,13 +42,38 @@ settings._target = None
 
 webapp.template.register_template_library('templatefilters')
 
+class I18NRequestHandler(webapp.RequestHandler):
 
-class ContentHandler(webapp.RequestHandler):
+  def initialize(self, request, response):
+    logging.info("Started `initialize` in `I18NRequestHandler`")
+    webapp.RequestHandler.initialize(self, request, response)
+    self.request.COOKIES = Cookies(self) 
+    self.request.META = os.environ
+    self.reset_language()
+
+  def reset_language(self):
+    logging.info("Resetting language.")
+    # Decide the language from Cookies/Headers
+    lang_match = re.match( "^/intl/(\w+)/", self.request.path )
+    if lang_match:
+      # Not English
+      translation.activate( lang_match.group( 1 ) )
+    else:
+      # English!
+      translation.activate("en")
+
+    self.request.LANGUAGE_CODE = translation.get_language()
+
+    # Set headers in response
+    self.response.headers['Content-Language'] = translation.get_language()
+
+class ContentHandler(I18NRequestHandler):
 
   def get_toc(self, path):
     toc = memcache.get('toc|%s' % path)
     if toc is None or self.request.cache == False:
       template_text = webapp.template.render(path, {});
+
       parser = html5lib.HTMLParser(tree=treebuilders.getTreeBuilder("dom"))
       dom_tree = parser.parse(template_text)
       walker = treewalkers.getTreeWalker("dom")
@@ -166,6 +192,9 @@ class ContentHandler(webapp.RequestHandler):
     basedir = os.path.dirname(__file__)
 
     logging.info('relpath: ' + relpath)
+
+    # Strip off leading `/intl/[en|de|fr|...]/`
+    relpath = re.sub( '^/?intl/\w+/?', '', relpath )
 
     if ((relpath == '' or relpath[-1] == '/') or  # Landing page.
        (relpath == 'tutorials' and relpath[-1] != '/') or   # Accept /tutorials\/?

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-20 11:39+0100\n"
+"POT-Creation-Date: 2010-12-20 15:14+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,19 +17,19 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: main.py:134
+#: main.py:160
 msgid "this feature"
 msgstr ""
 
-#: main.py:145
+#: main.py:171
 msgid "HTML5Rocks - Tutorials"
 msgstr ""
 
-#: main.py:147
+#: main.py:173
 msgid "Take a guided tour through code that uses HTML5."
 msgstr ""
 
-#: main.py:187
+#: main.py:216
 msgid "Page Not Found"
 msgstr ""
 
@@ -45,12 +45,8 @@ msgstr ""
 msgid "Chinese"
 msgstr ""
 
-#: content/index.html:3
+#: content/index.html:4
 msgid "A resource for open web HTML5 developers"
-msgstr ""
-
-#: content/index.html:192
-msgid "Take a guided tour through code that uses HTML5 features."
 msgstr ""
 
 #: html5lib/constants.py:15
@@ -706,13 +702,13 @@ msgid ""
 "licenses/LICENSE-2.0\">Apache 2.0 License</a>.\n"
 msgstr ""
 
-#: templates/base.html:24
+#: templates/base.html:26
 msgid ""
 "A resource for developers looking to put HTML5 to use today, including "
 "information on specific features and when to use them in your apps."
 msgstr ""
 
-#: templates/base.html:25
+#: templates/base.html:27
 msgid ""
 "html5,html 5,html5 demos,html5 examples,javascript,css3,notifications,"
 "geolocation,web workers,apppcache,file api,filereader,offline,audio,video,"
