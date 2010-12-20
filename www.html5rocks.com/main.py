@@ -34,6 +34,11 @@ from google.appengine.api import memcache
 
 from django.utils import feedgenerator
 
+# Loading settings for i18n
+os.environ['DJANGO_SETTINGS_MODULE'] = 'conf.settings'
+from django.conf import settings
+settings._target = None
+
 webapp.template.register_template_library('templatefilters')
 
 
@@ -126,7 +131,7 @@ class ContentHandler(webapp.RequestHandler):
 
     template_data.update(data)
     if not 'category' in template_data:
-      template_data['category'] = 'this feature'
+      template_data['category'] = _('this feature')
 
     self.response.headers.add_header('X-UA-Compatible', 'IE=Edge,chrome=1')
     self.response.out.write(
@@ -137,9 +142,9 @@ class ContentHandler(webapp.RequestHandler):
     logging.info(prefix)
 
     feed = feedgenerator.Atom1Feed(
-        title=u'HTML5Rocks - Tutorials',  # TODO: make generic for any page.
+        title=_(u'HTML5Rocks - Tutorials'),  # TODO: make generic for any page.
         link=prefix,
-        description=u'Take a guided tour through code that uses HTML5.',
+        description=_(u'Take a guided tour through code that uses HTML5.'),
         language=u'en'
         )
     for tutorial in data:
@@ -179,7 +184,7 @@ class ContentHandler(webapp.RequestHandler):
     elif os.path.isfile(path + '.html'):
       self.render(data={'category': relpath.replace('features/','') }, template_path=path + '.html')
     else:
-      self.render(status=404, message='Page Not Found',
+      self.render(status=404, message=_('Page Not Found'),
                   template_path=os.path.join(basedir, 'templates/404.html'))
 
 
