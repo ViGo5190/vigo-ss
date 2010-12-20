@@ -1,6 +1,6 @@
 {% extends "../templates/base.html" %}
 
-{% block headtitle %}A resource for open web HTML5 developers{% endblock %}
+{% block headtitle %}{% trans "A resource for open web HTML5 developers" %}{% endblock %}
 
 {% block head %}
   <link rel="alternate" type="application/rss+xml" title="HTML5Rocks" href="http://feeds.feedburner.com/html5rocks" />
@@ -189,7 +189,7 @@
         <div class="appcontent">
           <h2><span>Step by Step</span> Tutorials</h2>
           <img src="/static/images/html5rocks-tutorials.png" width="70" height="70" />
-          <p class="desc">Take a guided tour through code that uses HTML5 features.</p>
+          <p class="desc">{% trans "Take a guided tour through code that uses HTML5 features." %}</p>
         </div>
       </div>
     </a>
