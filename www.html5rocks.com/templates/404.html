@@ -1,3 +1,4 @@
+{% load i18n %}
 {% extends "base.html" %}
 
 {% block headtitle %}{% trans "404 - Page Not Found" %}{% endblock %}
@@ -22,7 +23,13 @@
 {% include "header.html" %}
 
 <div id="oops">
-  <img src="/static/images/html5_fist.png" width="256" height="268" title="{% trans "I pity da foo who doesn't use HTML5!" %}" alt="{% trans "I pity da foo who doesn't use HTML5!" %}"/>
+  <img
+    src="/static/images/html5_fist.png"
+    width="256"
+    height="268"
+    title="{% trans "I pity da foo who doesn't use HTML5!" %}"
+    alt="{% trans "I pity da foo who doesn't use HTML5!" %}"
+  />
   <h4>{% trans "Oops!! We didn't find any HTML<sub>5</sub> resources here." %}</h4>
 </div>
 

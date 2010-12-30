@@ -1,54 +1,122 @@
-# HTML5Rocks: German Message File
+# HTML5Rocks Message File: Portuguese
 #
-# Copyright (C) 2010, Google Inc.
-# This file is distributed under the same license as the HTML5Rocks package.
+# Copyright (C) 2010
 #
-# Mike West <mkwst@google.com>
+# This file is distributed under the same license as the HTML5Rocks package (Creative Commons 3.0 BY-SA)
+# Mike West <mkwst@google.com>, 2010
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-12-20 15:14+0100\n"
-"PO-Revision-Date: 2010-12-20 12:00+0100\n"
-"Last-Translator: Mike West <mkwst@google.com>\n"
-"Language: German (Deutsch)\n"
+"POT-Creation-Date: 2010-12-21 14:46+0100\n"
+"PO-Revision-Date: 2010-12-21 11:30+0100\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: Portuguese\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: main.py:160
-msgid "this feature"
+#: content/index.html:164
+msgid "<span>Interactive</span> Presentation"
 msgstr ""
 
-#: main.py:171
-msgid "HTML5Rocks - Tutorials"
+#: content/index.html:166
+msgid "Watch the slideshow that lets you play with HTML5 features."
 msgstr ""
 
-#: main.py:173
-msgid "Take a guided tour through code that uses HTML5."
+#: content/index.html:173
+msgid "<span>Code</span> Playground"
 msgstr ""
 
-#: main.py:216
-msgid "Page Not Found"
-msgstr "Seite nicht gefunden"
-
-#: conf/settings.py:5
-msgid "English"
+#: content/index.html:175
+msgid "Jump headfirst into HTML5 by experimenting with each API."
 msgstr ""
 
-#: conf/settings.py:6
-msgid "German"
-msgstr "Deutsch"
-
-#: conf/settings.py:7
-msgid "Chinese"
+#: content/index.html:182
+msgid "<span>Samples</span> Studio"
 msgstr ""
 
-#: content/index.html:4
-msgid "A resource for open web HTML5 developers"
-msgstr "Eine Resource für Open-Web HTML5 Entwickler"
+#: content/index.html:184
+msgid "A showroom of content that you can reuse in your own site."
+msgstr ""
+
+#: content/index.html:191
+msgid "<span>Step by Step</span> Tutorials"
+msgstr ""
+
+#: content/index.html:193
+msgid "Take a guided tour through code that uses HTML5 features."
+msgstr ""
+
+#: content/index.html:199
+msgid "Learn by major HTML5 feature groups"
+msgstr ""
+
+#: content/index.html:201
+msgid "Offline"
+msgstr ""
+
+#: content/index.html:204
+msgid "File Access"
+msgstr ""
+
+#: content/index.html:207
+msgid "Multimedia"
+msgstr ""
+
+#: content/index.html:210
+msgid "Performance"
+msgstr ""
+
+#: content/index.html:213 templates/header.html:6
+msgid "Presentation"
+msgstr ""
+
+#: content/index.html:216
+msgid "Graphics"
+msgstr ""
+
+#: content/index.html:219
+msgid "Storage"
+msgstr ""
+
+#: content/index.html:223
+msgid "Latest Tutorials"
+msgstr ""
+
+#: content/index.html:223
+msgid "RSS"
+msgstr ""
+
+#: content/index.html:225
+msgid "See more &rArr;"
+msgstr ""
+
+#: content/index.html:231
+msgid ""
+"\n"
+"      This site, the HTML5 <a href=\"http://playground.html5rocks.com"
+"\">Playground</a>, <a href=\"http://studio.html5rocks.com\">Studio</a>,\n"
+"      and <a href=\"http://slides.html5rocks.com\">Presentation</a> slides "
+"are all <a href=\"http://code.google.com/p/html5rocks/\">open source "
+"projects</a>.\n"
+"      Tweak the code or <a href=\"http://code.google.com/p/html5rocks/wiki/"
+"ContributorsGuide\">contribute</a> new guides!\n"
+"    "
+msgstr ""
+
+#: content/index.html:240
+msgid ""
+"\n"
+"      Ready to develop in HTML5 but worried about supporting older versions "
+"of Internet Explorer?\n"
+"      Learn how <a href=\"http://code.google.com/chrome/chromeframe/"
+"\">Google Chrome Frame</a> can help. It's easy to include\n"
+"      on your site:\n"
+msgstr ""
 
 #: html5lib/constants.py:15
 msgid "Null character in input stream, replaced with U+FFFD."
@@ -680,19 +748,19 @@ msgstr ""
 msgid "Text nodes have no children"
 msgstr ""
 
-#: templates/404.html:3
+#: templates/404.html:4
 msgid "404 - Page Not Found"
-msgstr "404 - Seite nicht gefunden"
+msgstr ""
 
-#: templates/404.html:25
+#: templates/404.html:30 templates/404.html.py:31
 msgid "I pity da foo who doesn't use HTML5!"
 msgstr ""
 
-#: templates/404.html:26
+#: templates/404.html:33
 msgid "Oops!! We didn't find any HTML<sub>5</sub> resources here."
-msgstr "Wir haben hier keine HTML<sub>5</sub> Resourcen gefunden."
+msgstr ""
 
-#: templates/article_footer.html:2
+#: templates/article_footer.html:3
 msgid ""
 "\n"
 "    Except as otherwise <a href=\"http://code.google.com/policies."
@@ -703,105 +771,86 @@ msgid ""
 "licenses/LICENSE-2.0\">Apache 2.0 License</a>.\n"
 msgstr ""
 
-#: templates/base.html:26
-msgid ""
-"A resource for developers looking to put HTML5 to use today, including "
-"information on specific features and when to use them in your apps."
-msgstr ""
-
-#: templates/base.html:27
-msgid ""
-"html5,html 5,html5 demos,html5 examples,javascript,css3,notifications,"
-"geolocation,web workers,apppcache,file api,filereader,offline,audio,video,"
-"drag and drop,chrome"
-msgstr ""
-
-#: templates/casestudy.html:9 templates/footer.html:3 templates/sample.html:8
+#: templates/casestudy.html:10 templates/footer.html:4 templates/sample.html:9
 msgid "Home"
 msgstr ""
 
-#: templates/casestudy.html:12
+#: templates/casestudy.html:13
 msgid "Case Studies"
 msgstr ""
 
-#: templates/casestudy.html:25 templates/sample.html:25
+#: templates/casestudy.html:26 templates/sample.html:26
 msgid "Post to Google Buzz"
-msgstr "zu Google Buzz posten"
+msgstr ""
 
-#: templates/casestudy.html:28 templates/sample.html:28
+#: templates/casestudy.html:29 templates/sample.html:29
 msgid "Tweet"
-msgstr "Twittern"
+msgstr ""
 
-#: templates/casestudy.html:34 templates/sample.html:34
+#: templates/casestudy.html:35 templates/sample.html:35
 msgid "Supported browsers:"
-msgstr "Unterstützende Browsern"
+msgstr ""
 
-#: templates/casestudy.html:42 templates/sample.html:42
+#: templates/casestudy.html:43 templates/sample.html:43
 msgid ""
 "Your browser may not support all of the functionality used in this sample."
 msgstr ""
-"Ihre Browser scheint nicht alle Funktionalitaten, die hier beschrieben sind, zu unterstützen."
 
-#: templates/casestudy.html:47 templates/sample.html:47
+#: templates/casestudy.html:48 templates/sample.html:48
 msgid ""
 "Your browser appears to support all of the functionality used in this sample."
 msgstr ""
-"Es scheint als ob Ihre Browser alle Funktionalitaten, die hier beschrieben sind, unterstützt."
 
-#: templates/footer.html:2
+#: templates/footer.html:3
 msgid "Made by Google"
 msgstr ""
 
-#: templates/footer.html:3
+#: templates/footer.html:4
 msgid "Terms"
 msgstr ""
 
-#: templates/footer.html:4
+#: templates/footer.html:5
 msgid "Privacy"
 msgstr ""
 
-#: templates/footer.html:5
+#: templates/footer.html:6
 msgid "Feedback"
 msgstr ""
 
-#: templates/footer.html:6
+#: templates/footer.html:7
 msgid "Make a Suggestion"
 msgstr ""
 
-#: templates/footer.html:7
+#: templates/footer.html:8
 msgid "Report Bug"
 msgstr ""
 
-#: templates/footer.html:8
+#: templates/footer.html:9
 msgid "Follow us on Twitter"
 msgstr ""
 
-#: templates/footer.html:9
+#: templates/footer.html:10
 msgid ""
 "This site contains information on APIs that are not part of the current W3C "
 "HTML5 specification."
 msgstr ""
 
-#: templates/header.html:5
-msgid "Presentation"
-msgstr ""
-
-#: templates/header.html:6
+#: templates/header.html:7
 msgid "Playground"
 msgstr ""
 
-#: templates/header.html:7
+#: templates/header.html:8
 msgid "Studio"
 msgstr ""
 
-#: templates/header.html:8 templates/sample.html:11
+#: templates/header.html:9 templates/sample.html:12
 msgid "Tutorials"
 msgstr ""
 
-#: templates/header.html:9
+#: templates/header.html:10
 msgid "Resources"
 msgstr ""
 
-#: templates/header.html:17
+#: templates/header.html:18
 msgid "Search HTML5Rocks"
 msgstr ""

@@ -1,7 +1,7 @@
 {% load i18n %}
 {% extends "../templates/base.html" %}
 
-{% block headtitle %}{% trans "A resource for open web HTML5 developers" %}{% endblock %}
+{% block headtitle %}A resource for open web HTML5 developers{% endblock %}
 
 {% block head %}
   <link rel="alternate" type="application/rss+xml" title="HTML5Rocks" href="http://feeds.feedburner.com/html5rocks" />
@@ -161,80 +161,88 @@
     <a href="http://slides.html5rocks.com">
       <div class="app">
         <div class="appcontent">
-          <h2><span>Interactive</span> Presentation</h2>
+          <h2>{% trans "<span>Interactive</span> Presentation" %}</h2>
           <img src="/static/images/html5rocks-presentation.png" width="70" height="70" />
-          <p class="desc">Watch the slideshow that lets you play with HTML5 features.</p>
+          <p class="desc">{% trans "Watch the slideshow that lets you play with HTML5 features." %}</p>
         </div>
       </div>
     </a>
     <a href="http://playground.html5rocks.com">
       <div class="app">
         <div class="appcontent">
-          <h2><span>Code</span> Playground</h2>
+          <h2>{% trans "<span>Code</span> Playground" %}</h2>
           <img src="/static/images/html5rocks-playground.png" width="70" height="70" />
-          <p class="desc">Jump headfirst into HTML5 by experimenting with each API.</p>
+          <p class="desc">{% trans "Jump headfirst into HTML5 by experimenting with each API." %}</p>
         </div>
       </div>
     </a>
     <a href="http://studio.html5rocks.com">
       <div class="app">
         <div class="appcontent">
-          <h2><span>Samples</span> Studio</h2>
+          <h2>{% trans "<span>Samples</span> Studio" %}</h2>
           <img src="/static/images/html5rocks-studio.png" width="70" height="70" />
-          <p class="desc">A showroom of content that you can reuse in your own site.</p>
+          <p class="desc">{% trans "A showroom of content that you can reuse in your own site." %}</p>
         </div>
       </div>
     </a>
     <a href="/tutorials/">
       <div class="app">
         <div class="appcontent">
-          <h2><span>Step by Step</span> Tutorials</h2>
+          <h2>{% trans "<span>Step by Step</span> Tutorials" %}</h2>
           <img src="/static/images/html5rocks-tutorials.png" width="70" height="70" />
-          <p class="desc">Take a guided tour through code that uses HTML5 features.</p>
+          <p class="desc">{% trans "Take a guided tour through code that uses HTML5 features." %}</p>
         </div>
       </div>
     </a>
   </section>
   <section class="clear fl feed-section">
-    <h2>Learn by major HTML5 feature groups</h2>
+    <h2>{% trans "Learn by major HTML5 feature groups" %}</h2>
     <div class="app feature">
-      <a href="/features/offline">Offline</a>
+      <a href="/features/offline">{% trans "Offline" %}</a>
     </div>
     <div class="app feature">
-      <a href="/features/file">File Access</a>
+      <a href="/features/file">{% trans "File Access" %}</a>
     </div>
     <div class="app feature">
-      <a href="/features/multimedia">Multimedia</a>
+      <a href="/features/multimedia">{% trans "Multimedia" %}</a>
     </div>
     <div class="app feature">
-      <a href="/features/performance">Performance</a>
+      <a href="/features/performance">{% trans "Performance" %}</a>
     </div>
     <div class="app feature">
-     <a href="/features/presentation">Presentation</a>
+     <a href="/features/presentation">{% trans "Presentation" %}</a>
     </div>
     <div class="app feature">
-     <a href="/features/graphics">Graphics</a>
+     <a href="/features/graphics">{% trans "Graphics" %}</a>
     </div>
     <div class="app feature">
-     <a href="/features/storage">Storage</a>
+     <a href="/features/storage">{% trans "Storage" %}</a>
     </div>
   </section>
   <section class="fr feed-section">
-    <h2>Latest Tutorials <a href="http://feeds.feedburner.com/html5rocks"><img src="/static/images/feed_icon16x16.png" width="16" height="16" /></a></h2>
-    <ul id="latest_articles_feed"><li><i>loading feed...</i></li></ul>
-    <p><a href="/tutorials/">See more &rArr;</a></p>
+    <h2>{% trans "Latest Tutorials" %} <a href="http://feeds.feedburner.com/html5rocks"><img src="/static/images/feed_icon16x16.png" width="16" height="16" alt="{% trans "RSS" %}" /></a></h2>
+    <ul id="latest_articles_feed"><li><i>{% trans "loading feed..." %}</i></li></ul>
+    <p><a href="/tutorials/">{% trans "See more &rArr;" %}</a></p>
   </section>
   
   <section class="clear info-section">
     <h2>Contribute</h2>
-    <p>This site, the HTML5 <a href="http://playground.html5rocks.com">Playground</a>, <a href="http://studio.html5rocks.com">Studio</a>,
-    and <a href="http://slides.html5rocks.com">Presentation</a> slides are all <a href="http://code.google.com/p/html5rocks/">open source projects</a>.
-    Tweak the code or <a href="http://code.google.com/p/html5rocks/wiki/ContributorsGuide">contribute</a> new guides!</p>
+    <p>
+    {% blocktrans %}
+      This site, the HTML5 <a href="http://playground.html5rocks.com">Playground</a>, <a href="http://studio.html5rocks.com">Studio</a>,
+      and <a href="http://slides.html5rocks.com">Presentation</a> slides are all <a href="http://code.google.com/p/html5rocks/">open source projects</a>.
+      Tweak the code or <a href="http://code.google.com/p/html5rocks/wiki/ContributorsGuide">contribute</a> new guides!
+    {% endblocktrans %}
+    </p>
   </section>
   <section class="chrome-section">
-    <p>Ready to develop in HTML5 but worried about supporting older versions of Internet Explorer?
-    Learn how <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a> can help. It's easy to include
-    on your site:</p>
+    <p>
+{% blocktrans %}
+      Ready to develop in HTML5 but worried about supporting older versions of Internet Explorer?
+      Learn how <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a> can help. It's easy to include
+      on your site:
+{% endblocktrans %}
+    </p>
     <pre class="prettyprint">&lt;meta http-equiv="X-UA-Compatible" content="chrome=1"&gt;</pre>
   </section>
 

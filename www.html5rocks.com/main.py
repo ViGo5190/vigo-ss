@@ -33,47 +33,36 @@ from google.appengine.ext.webapp import util
 from google.appengine.ext.webapp import template
 from google.appengine.api import memcache
 
-from django.utils import feedgenerator, translation
-from cookies import Cookies
-# Loading settings for i18n
-os.environ['DJANGO_SETTINGS_MODULE'] = 'conf.settings'
-from django.conf import settings
-settings._target = None
+from django.utils import feedgenerator
 
 webapp.template.register_template_library('templatefilters')
 
-class I18NRequestHandler(webapp.RequestHandler):
+# i18n
+from django.conf import settings
+try:
+    settings.configure()
+except: # @TODO: Shouldn't do a blanket `except`
+    pass
+settings.LANGUAGE_CODE = 'en'
+settings.USE_I18N = True
+settings.ROOT_DIR = os.path.abspath( os.path.dirname( __file__ ) )
+settings.LOCALE_PATHS = ( 
+  os.path.join( settings.ROOT_DIR, 'conf', 'locale' ),
+)
+from django.utils import translation
 
-  def initialize(self, request, response):
-    logging.info("Started `initialize` in `I18NRequestHandler`")
-    webapp.RequestHandler.initialize(self, request, response)
-    self.request.COOKIES = Cookies(self) 
-    self.request.META = os.environ
-    self.reset_language()
-
-  def reset_language(self):
-    logging.info("Resetting language.")
-    # Decide the language from Cookies/Headers
+class ContentHandler(webapp.RequestHandler):
+  def get_language(self):
     lang_match = re.match( "^/intl/(\w+)/", self.request.path )
-    if lang_match:
-      # Not English
-      translation.activate( lang_match.group( 1 ) )
-    else:
-      # English!
-      translation.activate("en")
-
-    self.request.LANGUAGE_CODE = translation.get_language()
-
-    # Set headers in response
-    self.response.headers['Content-Language'] = translation.get_language()
-
-class ContentHandler(I18NRequestHandler):
+    self.locale = lang_match.group(1) if lang_match else settings.LANGUAGE_CODE
+    logging.info( "Set Language as %s" % self.locale )
+    translation.activate( self.locale )
+    return self.locale
 
   def get_toc(self, path):
     toc = memcache.get('toc|%s' % path)
     if toc is None or self.request.cache == False:
       template_text = webapp.template.render(path, {});
-
       parser = html5lib.HTMLParser(tree=treebuilders.getTreeBuilder("dom"))
       dom_tree = parser.parse(template_text)
       walker = treewalkers.getTreeWalker("dom")
@@ -145,7 +134,8 @@ class ContentHandler(I18NRequestHandler):
         return
 
     template_data = {
-      'toc' : self.get_toc(template_path),
+      #'toc' : self.get_toc(template_path),
+      'toc' : '',
       'self_url': self.request.url,
       'host': '%s://%s' % (self.request.scheme, self.request.host)
     }
@@ -157,7 +147,7 @@ class ContentHandler(I18NRequestHandler):
 
     template_data.update(data)
     if not 'category' in template_data:
-      template_data['category'] = _('this feature')
+      template_data['category'] = 'this feature'
 
     self.response.headers.add_header('X-UA-Compatible', 'IE=Edge,chrome=1')
     self.response.out.write(
@@ -168,9 +158,9 @@ class ContentHandler(I18NRequestHandler):
     logging.info(prefix)
 
     feed = feedgenerator.Atom1Feed(
-        title=_(u'HTML5Rocks - Tutorials'),  # TODO: make generic for any page.
+        title=u'HTML5Rocks - Tutorials',  # TODO: make generic for any page.
         link=prefix,
-        description=_(u'Take a guided tour through code that uses HTML5.'),
+        description=u'Take a guided tour through code that uses HTML5.',
         language=u'en'
         )
     for tutorial in data:
@@ -184,6 +174,8 @@ class ContentHandler(I18NRequestHandler):
     self.response.out.write(feed.writeString('utf-8'))
 
   def get(self, relpath):
+    locale = self.get_language()
+
     if self.request.get('cache', '1') == '0':
       self.request.cache = False
     else:
@@ -204,16 +196,39 @@ class ContentHandler(I18NRequestHandler):
       path = os.path.join(basedir, 'content', relpath)
 
     # Render the .html page if it exists. Otherwise, check that the Atom feed
+    # the user is requesting has a corresponding .html page that exists.
+
+    # Tutorials look like this on the filesystem:
+    #
+    #   .../tutorials +
+    #                 |
+    #                 +-- article-slug  +
+    #                 |                 |
+    #                 |                 +-- en  +
+    #                 |                 |       |
+    #                 |                 |       +-- index.html
+    #                 ...
+    #
+    # So, to determine if an HTML page exists for the requested language
+    # `split` the file's path, add in the locale, and check existance:
+    logging.info('Building request for `%s` in locale `%s`', path, locale)
+    (dir, filename) = os.path.split(path)
+    if os.path.isfile( os.path.join( dir, locale, filename ) ):
+      self.render(template_path=os.path.join( dir, locale, filename ))
+
+    # If the localized file doesn't exist, and the locale isn't English, look
+    # for an english version of the file, and redirect the user there if it's found:
+    elif os.path.isfile( os.path.join( dir, "en", filename ) ):
+      self.redirect( "/intl/en/%s?redirect_from_locale=%s" % (relpath, locale) )
+
+    # Render the .html page if it exists. Otherwise, check that the Atom feed
     # the user is requesting jas a corresponding .html page that exists.
-    logging.info('path: ' + path)
-    if os.path.isfile(path):
-      self.render(template_path=path)
     elif os.path.isfile(path[:path.rfind('.')] + '.html'):
       self.render(template_path=path[:path.rfind('.')] + '.html')
     elif os.path.isfile(path + '.html'):
       self.render(data={'category': relpath.replace('features/','') }, template_path=path + '.html')
     else:
-      self.render(status=404, message=_('Page Not Found'),
+      self.render(status=404, message='Page Not Found',
                   template_path=os.path.join(basedir, 'templates/404.html'))
 
 

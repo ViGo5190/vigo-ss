@@ -1,3 +1,4 @@
+{% load i18n %}
 {% extends "../../../templates/base.html" %}
 
 {% block body %}
@@ -39,12 +40,12 @@
       <div class="compatible-block"> 
         <p id="notcompatible" class="hidden">
           {% block notcompatible_text %}
-            {% trans "Your browser may not support all of the functionality used in this sample." %}
+          {% trans "Your browser may not support all of the functionality used in this sample." %}
           {% endblock %}
         </p>
         <p id="compatible" class="hidden">
           {% block compatible_text %}
-            {% trans "Your browser appears to support all of the functionality used in this sample." %}
+          {% trans "Your browser appears to support all of the functionality used in this sample." %}
           {% endblock %}
         </p>
       </div>
