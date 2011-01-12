@@ -288,22 +288,19 @@
             <ul>
               <li>CSS3 2D transforms
               <li>CSS3 animation
-                
             <script>
               supported(function() {
                 return Modernizr.csstransforms && Modernizr.cssanimations;
               });
-            </script>  
-                
+            </script> 
           </div>
-          
-          
+
+
           <div class="box app"><a href="/samples/dnd-fileapi/index.html"><img src="static/img/drag.jpg"><span>Drag n Drop Photos</span></a>
             <p>Drag files in from your machine, get an instant preview</p>
             <ul>
               <li>HTML5 Drag 'n Drop
               <li>FileReader API
-              
             <script>
               supported(function() {
                 return 'draggable' in document.createElement('span') && !!window.FileReader;
@@ -312,7 +309,19 @@
           </div>
 
 
-
+          <div class="box app"><a href="/samples/video-cube/index.html"><img src="static/img/cube.jpg"><span>Video Cube</span></a>
+            <p>Build a cube of ASCII reflecting a video in realtime and reposition the view.</p>
+            <ul>
+              <li>HTML5 video
+              <li>Canvas  
+              <li>CSS 2D Transforms
+              <li>CSS3 mask image
+            <script>
+              supported(function() {
+                return Modernizr.video && Modernizr.canvas && !!window.WebKitCSSMatrix;
+              });
+            </script>
+          </div>
 
         </div>
       </section> <!-- eo section.controlbar -->
