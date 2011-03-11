@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+
+{% block headtitle %}A resource for open web HTML5 developers{% endblock %}
+
+{% block head %}
+  <link rel="alternate" type="application/rss+xml" title="HTML5Rocks" href="http://feeds.feedburner.com/html5rocks" />
+  <link rel="stylesheet" media="screen" href="/static/css/index_page{% if prod %}.min{% endif %}.css" />
+  <link rel="stylesheet" media="only screen and (max-width: 640px)" href="/static/css/index_page_mobile{% if prod %}.min{% endif %}.css" />
+{% endblock %}
+
+{% block body %}
+
+{% if not is_mobile %}
+  <section id="index">
+    <a href="http://slides.html5rocks.com">
+      <div class="app">
+        <div class="appcontent">
+          <h2><span>Interactive</span> Presentation</h2>
+          <img src="/static/images/html5rocks-presentation.png" width="70" height="70" />
+          <p class="desc">Watch the slideshow that lets you play with HTML5 features.</p>
+        </div>
+      </div>
+    </a>
+    <a href="http://playground.html5rocks.com">
+      <div class="app">
+        <div class="appcontent">
+          <h2><span>Code</span> Playground</h2>
+          <img src="/static/images/html5rocks-playground.png" width="70" height="70" />
+          <p class="desc">Jump headfirst into HTML5 by experimenting with each API.</p>
+        </div>
+      </div>
+    </a>
+    <a href="http://studio.html5rocks.com">
+      <div class="app">
+        <div class="appcontent">
+          <h2><span>Samples</span> Studio</h2>
+          <img src="/static/images/html5rocks-studio.png" width="70" height="70" />
+          <p class="desc">A showroom of content that you can reuse in your own site.</p>
+        </div>
+      </div>
+    </a>
+    <a href="/tutorials/">
+      <div class="app">
+        <div class="appcontent">
+          <h2><span>Step by Step</span> Tutorials</h2>
+          <img src="/static/images/html5rocks-tutorials.png" width="70" height="70" />
+          <p class="desc">Take a guided tour through code that uses HTML5 features.</p>
+        </div>
+      </div>
+    </a>
+  </section>
+{% endif %}
+  <article id="components">
+    <section class="clear fl feed-section" id="themes">
+      <h2 class="section-header">Learn by Major HTML5 Feature Groups</h2>
+      <a href="/features/offline">
+        <div class="app feature" style="background-position: -28px 50%;"></div>
+        <h3>Offline</h3>
+      </a>
+      <a href="/features/file">
+        <div class="app feature" style="background-position: -28px 50%;"></div>
+        <h3>File Access</h3>
+      </a>
+      <a href="/features/multimedia">
+        <div class="app feature" style="background-position: -239px 50%;"></div>
+        <h3>Multimedia</h3>
+      </a>
+      <a href="/features/performance">
+        <div class="app feature" style="background-position: -204px 50%;"></div>
+        <h3>Performance</h3>
+      </a>
+      <a href="/features/presentation">
+        <div class="app feature" style="background-position: -99px 50%;"></div>
+        <h3>Presentation</h3>
+      </a>
+      <a href="/features/graphics">
+        <div class="app feature" style="background-position: 7px 50%;"></div>
+        <h3>Graphics</h3>
+      </a>
+      <a href="/features/storage">
+        <div class="app feature" style="background-position: -28px 50%;"></div>
+        <h3>Storage</h3>
+      </a>
+    </section>
+
+    <section class="fr feed-section">
+      <h2 class="section-header">Latest Tutorials <a href="http://feeds.feedburner.com/html5rocks"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0
+U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAJpSURBVDjLfVNJT1NRGL0/wY0/wonaEesO
+AxoTF4bEpY1GFGGBqEUhggjYaCVIcIKC1TiHiCEBiXEhVdm4EDaaKI2WofTRlqbYR8sbOhzfd5v3
+tEK8i5d3F+fcM3wf+3x065bZc9t6F5rNCLeYsXTJgkibBUK7FcsdVkS7bIh57Ihfs2PFa0fihgOx
+6w4QhrCMfmKXnYi4y7DcbEK8zYxEhwVJjxW/vDaIPXak+xxYv1MOqX8PlEEn1PtOKP4KTsLoZQLH
+vQeRfjeAzPsBiE9O/Rec9e+F7HMiqiljJJteXvXX4O9TkEUon4awPlS5KThzq5xbY+SZZCf7DkGa
+8kH9Mo58SvjDpKwh+/biBnCq245opw2MAtvMszxah0IiaPDkPl4tASc9Nh40ow+B089ruexceBrq
+VC/kB5Vcdj44YZDIr5sM8Eq71larBYyqopczw6dLMuDSR11cdm52wshltaeCg6MtVLtGQD3rsqVH
+h6FOdqEgCgaJOuLisvVcMgEfBwtuExYvmMEoyQ1VPd5vSC9oQPH2PqRHzhfvksjB4YYyLLh3g9GE
+6eD83AcUhBkemPKwylCSHrvCZROYTtR7BPP1uzB3ViOg8SSwOl5v2M9HprlsOXCz6ORbgMuWvk7y
+e/KlF6GTOxE6YwKj2SbZ2eFq7pmOOvOCp732tJbfs8J3Ljv1pr9IMHYXP47vwM8GjYAWQx8S5Vk1
+pFd1JVUlB2uQuHeCe15qPQCh+xjmm6oQdG1HqFGzQAtBi/HvkOhV6YGRZ5JNLxN4sbG4kUxfZ1oM
+aoTGk4aLhoR6pqoobQqMPJNsellf598J2Or0Mh3FtwAAAABJRU5ErkJggg==" width="16" height="16" /></a></h2>
+      <ul id="latest_articles_feed"><li><i>loading feed...</i></li></ul>
+      <p><a href="/tutorials/">See more &rArr;</a></p>
+    </section>
+
+    <section class="clear info-section">
+      <h2 class="section-header">Contribute</h2>
+      <p>This site, the HTML5 <a href="http://playground.html5rocks.com">Playground</a>, <a href="http://studio.html5rocks.com">Studio</a>,
+      and <a href="http://slides.html5rocks.com">Presentation</a> slides are all <a href="http://code.google.com/p/html5rocks/">open source projects</a>.
+      Tweak the code or <a href="http://code.google.com/p/html5rocks/wiki/ContributorsGuide">contribute</a> new guides!</p>
+    </section>
+
+    <section class="chrome-section">
+      <p>Ready to develop in HTML5 but worried about supporting older versions of Internet Explorer?
+      Learn how <a href="http://code.google.com/chrome/chromeframe/">Google Chrome Frame</a> can help. It's easy to include
+      on your site:</p>
+      <pre class="prettyprint">&lt;meta http-equiv="X-UA-Compatible" content="chrome=1"&gt;</pre>
+    </section>
+  </article>
+
+  <script>
+    function processFeedResponse(result) {
+      var container = document.getElementById('latest_articles_feed');
+
+      if (!container) {
+        return;
+      }
+
+      if (!result.responseData) {
+        container.innerHTML = '<li>' + result.responseDetails + '<\/li>';
+        return;
+      }
+
+      var html = [];
+      for (var i = 0, entry; entry = result.responseData.feed.entries[i]; ++i) {
+        var date = new Date(entry.publishedDate);
+        var formattedDateStr = date.getUTCMonth() + 1 + '/' + date.getUTCDate();
+
+        html.push('<li>', formattedDateStr, ' <a href="', entry.link, '">',
+                  entry.title, '<\/a><\/li>')
+      }
+      container.innerHTML = html.join('');
+    }
+  </script>
+  <script src="http://ajax.googleapis.com/ajax/services/feed/load?v=1.0&amp;num=6&amp;q={{host}}/tutorials/index.xml&amp;callback=processFeedResponse"></script>
+{% endblock %}
