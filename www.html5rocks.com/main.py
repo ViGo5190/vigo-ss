@@ -20,7 +20,6 @@ __author__ = ('kurrik@html5rocks.com (Arne Kurrik) ',
 import datetime
 import logging
 import os
-import re
 
 # Libraries
 import html5lib
@@ -37,27 +36,8 @@ from django.utils import feedgenerator
 
 webapp.template.register_template_library('templatefilters')
 
-# i18n
-from django.conf import settings
-try:
-    settings.configure()
-except: # @TODO: Shouldn't do a blanket `except`
-    pass
-settings.LANGUAGE_CODE = 'en'
-settings.USE_I18N = True
-settings.ROOT_DIR = os.path.abspath( os.path.dirname( __file__ ) )
-settings.LOCALE_PATHS = ( 
-  os.path.join( settings.ROOT_DIR, 'conf', 'locale' ),
-)
-from django.utils import translation
 
 class ContentHandler(webapp.RequestHandler):
-  def get_language(self):
-    lang_match = re.match( "^/intl/(\w+)/", self.request.path )
-    self.locale = lang_match.group(1) if lang_match else settings.LANGUAGE_CODE
-    logging.info( "Set Language as %s" % self.locale )
-    translation.activate( self.locale )
-    return self.locale
 
   def get_toc(self, path):
     toc = memcache.get('toc|%s' % path)
@@ -134,8 +114,7 @@ class ContentHandler(webapp.RequestHandler):
         return
 
     template_data = {
-      #'toc' : self.get_toc(template_path),
-      'toc' : '',
+      'toc' : self.get_toc(template_path),
       'self_url': self.request.url,
       'host': '%s://%s' % (self.request.scheme, self.request.host)
     }
@@ -174,8 +153,6 @@ class ContentHandler(webapp.RequestHandler):
     self.response.out.write(feed.writeString('utf-8'))
 
   def get(self, relpath):
-    locale = self.get_language()
-
     if self.request.get('cache', '1') == '0':
       self.request.cache = False
     else:
@@ -185,9 +162,6 @@ class ContentHandler(webapp.RequestHandler):
 
     logging.info('relpath: ' + relpath)
 
-    # Strip off leading `/intl/[en|de|fr|...]/`
-    relpath = re.sub( '^/?intl/\w+/?', '', relpath )
-
     if ((relpath == '' or relpath[-1] == '/') or  # Landing page.
        (relpath == 'tutorials' and relpath[-1] != '/') or   # Accept /tutorials\/?
        (relpath == 'features' and relpath[-1] != '/')):      # Accept /features\/?
@@ -196,33 +170,10 @@ class ContentHandler(webapp.RequestHandler):
       path = os.path.join(basedir, 'content', relpath)
 
     # Render the .html page if it exists. Otherwise, check that the Atom feed
-    # the user is requesting has a corresponding .html page that exists.
-
-    # Tutorials look like this on the filesystem:
-    #
-    #   .../tutorials +
-    #                 |
-    #                 +-- article-slug  +
-    #                 |                 |
-    #                 |                 +-- en  +
-    #                 |                 |       |
-    #                 |                 |       +-- index.html
-    #                 ...
-    #
-    # So, to determine if an HTML page exists for the requested language
-    # `split` the file's path, add in the locale, and check existance:
-    logging.info('Building request for `%s` in locale `%s`', path, locale)
-    (dir, filename) = os.path.split(path)
-    if os.path.isfile( os.path.join( dir, locale, filename ) ):
-      self.render(template_path=os.path.join( dir, locale, filename ))
-
-    # If the localized file doesn't exist, and the locale isn't English, look
-    # for an english version of the file, and redirect the user there if it's found:
-    elif os.path.isfile( os.path.join( dir, "en", filename ) ):
-      self.redirect( "/intl/en/%s?redirect_from_locale=%s" % (relpath, locale) )
-
-    # Render the .html page if it exists. Otherwise, check that the Atom feed
     # the user is requesting jas a corresponding .html page that exists.
+    logging.info('path: ' + path)
+    if os.path.isfile(path):
+      self.render(template_path=path)
     elif os.path.isfile(path[:path.rfind('.')] + '.html'):
       self.render(template_path=path[:path.rfind('.')] + '.html')
     elif os.path.isfile(path + '.html'):
