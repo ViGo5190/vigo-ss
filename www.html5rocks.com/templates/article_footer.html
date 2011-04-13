@@ -1,0 +1,33 @@
+<p class="cc">
+  Except as otherwise <a href="http://code.google.com/policies.html#restrictions">noted</a>, the content of this
+  page is licensed under the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>, <br>
+  and code samples are licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 License</a>.
+</p>
+
+<script src="/static/js/modernizr-1.7.min.js"></script>
+<script src="/static/js/prettify{% if prod %}.min{% endif %}.js" onload="prettyPrint();"></script>
+
+{% if not is_mobile %}
+<div id="disqus_thread"></div>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<script>
+  var disqus_shortname = 'html5rocks';
+  // var disqus_identifier = 'unique_dynamic_id_1234';
+  // var disqus_url = 'http://example.com/permalink-to-page.html';
+  var disqus_developer = {% if not prod %}1{% else %}0{% endif %};
+
+  (function () {
+    var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
+    s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+
+    var el = document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0];
+    el.appendChild(s);
+    el.appendChild(dsq);
+  }());
+</script>
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+<script type="text/javascript" src="http://www.google.com/buzz/api/button.js"></script>
+{% endif %}
