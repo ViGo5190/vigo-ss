@@ -1,0 +1,1112 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block headtitle %}{% trans "Tutorials" %}{% endblock %}
+
+{% block head %}
+  <link rel="alternate" type="application/rss+xml" title="HTML5Rocks" href="http://feeds.feedburner.com/html5rocks" />
+  <link rel="stylesheet" media="screen" href="/static/css/samples_index{% if prod %}.min{% endif %}.css" />
+{% endblock %}
+
+{% block body %}
+  <nav>
+    <p class="breadcrumb">
+    <a class="buttonlink" href="/{{LANGUAGE_CODE}}/">
+      <span>{% trans "Home" %}</span>
+      </a >&gt; {{ current.capitalize }}
+    </p>
+  </nav>
+  <section>
+    <div id="filter" class="hidden">
+      {% trans "Currently filtering by tag" %} <span id="filter_tag"></span>.
+      <a href="javascript:clearFilter();">{% trans "[Clear filter]" %}</a>
+    </div>
+  </section>
+  <aside id="tags">
+    <h3>{% trans "Filter by tag" %}</h3>
+    <div class="tag">3D</div>
+    <div class="tag">CSS</div>
+    <div class="tag">appcache</div>
+    <div class="tag">audio</div>
+    <div class="tag">binary</div>
+    <div class="tag">canvas</div>
+    <div class="tag">casestudy</div>
+    <div class="tag">dnd</div>
+    <div class="tag">devtools</div>
+    <div class="tag">device</div>
+    <div class="tag">devicemotion</div>
+    <div class="tag">deviceorientation</div>
+    <div class="tag">file</div>
+    <div class="tag">filereader</div>
+    <div class="tag">filesystem</div>
+    <div class="tag">filewriter</div>
+    <div class="tag">flash</div>
+    <div class="tag">games</div>
+    <div class="tag">geolocation</div>
+    <div class="tag">graphics</div>
+    <div class="tag">indexeddb</div>
+    <div class="tag">mobile</div>
+    <div class="tag">multimedia</div>
+    <div class="tag">notifications</div>
+    <div class="tag">offline</div>
+    <div class="tag">performance</div>
+    <div class="tag">presentation</div>
+    <div class="tag">eventsource</div>
+    <div class="tag">storage</div>
+    <div class="tag">svg</div>
+    <div class="tag">video</div>
+    <div class="tag">webdatabase</div>
+    <div class="tag">webfonts</div>
+    <div class="tag">websockets</div>
+    <div class="tag">workers</div>
+    <div class="tag">xhr2</div>
+  </aside>
+
+  <div id="index">
+    <a href="http://feeds.feedburner.com/html5rocks">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0
+U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAJpSURBVDjLfVNJT1NRGL0/wY0/wonaEesO
+AxoTF4bEpY1GFGGBqEUhggjYaCVIcIKC1TiHiCEBiXEhVdm4EDaaKI2WofTRlqbYR8sbOhzfd5v3
+tEK8i5d3F+fcM3wf+3x065bZc9t6F5rNCLeYsXTJgkibBUK7FcsdVkS7bIh57Ihfs2PFa0fihgOx
+6w4QhrCMfmKXnYi4y7DcbEK8zYxEhwVJjxW/vDaIPXak+xxYv1MOqX8PlEEn1PtOKP4KTsLoZQLH
+vQeRfjeAzPsBiE9O/Rec9e+F7HMiqiljJJteXvXX4O9TkEUon4awPlS5KThzq5xbY+SZZCf7DkGa
+8kH9Mo58SvjDpKwh+/biBnCq245opw2MAtvMszxah0IiaPDkPl4tASc9Nh40ow+B089ruexceBrq
+VC/kB5Vcdj44YZDIr5sM8Eq71larBYyqopczw6dLMuDSR11cdm52wshltaeCg6MtVLtGQD3rsqVH
+h6FOdqEgCgaJOuLisvVcMgEfBwtuExYvmMEoyQ1VPd5vSC9oQPH2PqRHzhfvksjB4YYyLLh3g9GE
+6eD83AcUhBkemPKwylCSHrvCZROYTtR7BPP1uzB3ViOg8SSwOl5v2M9HprlsOXCz6ORbgMuWvk7y
+e/KlF6GTOxE6YwKj2SbZ2eFq7pmOOvOCp732tJbfs8J3Ljv1pr9IMHYXP47vwM8GjYAWQx8S5Vk1
+pFd1JVUlB2uQuHeCe15qPQCh+xjmm6oQdG1HqFGzQAtBi/HvkOhV6YGRZ5JNLxN4sbG4kUxfZ1oM
+aoTGk4aLhoR6pqoobQqMPJNsellf598J2Or0Mh3FtwAAAABJRU5ErkJggg==" width="16" height="16" />
+    </a>
+
+
+      <!-- ___H5R_NEW_SAMPLE___ -->
+
+      <article class="sample">
+        <h2 id="chrome-experiments-demo-harness" data-pubdate="2011-05-25">
+          <a href="/tutorials/webgl/demoloop/">Chrome Experiments Demo Harness</a>
+        </h2>
+        <div>
+          <span class="date">May 25, 2011 &nbsp; By: {% simpleprofilelink ilmari %}</span>
+          <span class="tag">webgl</span>
+          <span class="tag">canvas</span>
+        </div>
+        <div class="summary">
+          Experiences from building a kiosk-style demo station with HTML and WebGL.
+        </div>
+        <div class="footer_links">
+          <span class="buttonlink">
+            <a href="/tutorials/webgl/demoloop/">View tutorial</a> &rArr;
+          </span>
+          <span class="browser_logos">
+            <span class="opera"></span>
+            <span class="ie"></span>
+            <span class="safari"></span>
+            <span class="ff"></span>
+            <span class="chrome supported"></span>
+          </span>
+        </div>
+      </article>
+
+
+      <article class="sample">
+        <h2 id="image-filters-with-canvas" data-pubdate="2011-05-25">
+          <a href="/tutorials/canvas/imagefilters/">Image filters with Canvas</a>
+        </h2>
+        <div>
+          <span class="date">May 25, 2011 &nbsp; By: {% simpleprofilelink ilmari %}</span>
+          <span class="tag">canvas</span>
+          <span class="tag">graphics</span>
+        </div>
+        <div class="summary">
+          A quick guide to writing custom image filters with &lt;canvas&gt;.
+        </div>
+        <div class="footer_links">
+          <span class="buttonlink">
+            <a href="/tutorials/canvas/imagefilters/">View tutorial</a> &rArr;
+          </span>
+          <span class="browser_logos">
+            <span class="opera supported"></span>
+            <span class="ie supported"></span>
+            <span class="safari supported"></span>
+            <span class="ff supported"></span>
+            <span class="chrome supported"></span>
+          </span>
+        </div>
+      </article>
+
+
+      <article class="sample">
+        <h2 id="this-end-up---using-device-orientation" data-pubdate="2011-04-29">
+          <a href="/tutorials/device/orientation/">This End Up: Using Device Orientation</a>
+        </h2>
+        <div>
+          <span class="date">April 29, 2011 &nbsp; By: {% simpleprofilelink petele %}</span>
+          <span class="tag">device</span>
+          <span class="tag">devicemotion</span>
+          <span class="tag">deviceorientation</span>
+          <span class="tag">mobile</span>
+        </div>
+        <div class="summary">
+          Learn how to use device orientation and device motion events to tell when your computer is moving.
+        </div>
+        <div class="footer_links">
+          <span class="buttonlink">
+            <a href="/tutorials/device/orientation/">View tutorial</a> &rArr;
+          </span>
+          <span class="browser_logos">
+            <span class="opera supported"></span>
+            <span class="ie"></span>
+            <span class="safari supported"></span>
+            <span class="ff supported"></span>
+            <span class="chrome supported"></span>
+          </span>
+        </div>
+     </article>
+
+     <article class="sample">
+       <h2 id="case-study:-realtime-updates-in-stream-congress" data-pubdate="2011-04-08">
+         <a href="/mobile/touch.html">Multi-touch Web Development</a>
+       </h2>
+       <div>
+         <span class="date">April 8, 2011 &nbsp; By: {% simpleprofilelink smus %}</span>
+         <span class="tag">mobile</span>
+       </div>
+       <div class="summary">
+         Introduction on touch events for mobile devices.
+       </div>
+       <div class="footer_links">
+         <span class="buttonlink">
+           <a href="/mobile/touch.html">View tutorial</a> &rArr;
+         </span>
+         <span class="browser_logos">
+           <span class="opera supported"></span>
+           <span class="ie supported"></span>
+           <span class="safari supported"></span>
+           <span class="ff supported"></span>
+           <span class="chrome supported"></span>
+         </span>
+       </div>
+     </article>
+
+      <article class="sample">
+        <h2 id="case-study:-realtime-updates-in-stream-congress" data-pubdate="2011-03-17">
+          <a href="/tutorials/casestudies/sunlight_streamcongress.html">Case Study: Real-time Updates in Stream Congress</a>
+        </h2>
+        <div>
+          <span class="date">March 17, 2011 &nbsp; By: {% simpleprofilelink luigimontanez %}</span>
+          <span class="tag">eventsource</span>
+          <span class="tag">websockets</span>
+          <span class="tag">casestudy</span>
+        </div>
+        <div class="summary">
+          Choosing the right technology to accomplish real-time, asynchronous updates.
+        </div>
+        <div class="footer_links">
+          <span class="buttonlink">
+            <a href="/tutorials/casestudies/sunlight_streamcongress.html">View tutorial</a> &rArr;
+          </span>
+          <span class="browser_logos">
+            <span class="opera supported"></span>
+            <span class="ie"></span>
+            <span class="safari supported"></span>
+            <span class="ff"></span>
+            <span class="chrome supported"></span>
+          </span>
+        </div>
+      </article>
+
+      <article class="sample">
+        <h2 id="wordico" data-pubdate="2011-03-10">
+          <a href="/{{LANGUAGE_CODE}}/tutorials/casestudies/wordico.html">{% trans "Case Study: Converting Wordico from Flash to HTML5" %}</a>
+        </h2>
+        <div>
+          <span class="date">March 10, 2011 &nbsp; {% trans "By:" %} {% simpleprofilelink adammark adriangould %}</span>
+          <span class="tag">canvas</span>
+          <span class="tag">casestudy</span>
+          <span class="tag">games</span>
+        </div>
+        <div class="summary">{% blocktrans %}
+          Learn how we converted our <a href="https://chrome.google.com/webstore/detail/ehehfnkgbccpcjmfhdkbeakkpibbcfdl">Wordico</a>
+          crossword game from Flash to HTML5.
+        {% endblocktrans %}</div>
+        <div class="footer_links">
+          <span class="buttonlink">
+            <a href="/{{LANGUAGE_CODE}}/tutorials/casestudies/wordico.html">{% trans "View tutorial" %}</a> &rArr;
+          </span>
+          <span class="browser_logos">
+            <span class="opera supported"></span>
+            <span class="ie"></span>
+            <span class="safari supported"></span>
+            <span class="ff supported"></span>
+            <span class="chrome supported"></span>
+          </span>
+        </div>
+      </article>
+
+      <article class="sample">
+        <h2 id="mobilizing-site" data-pubdate="2011-03-03">
+          <a href="/{{LANGUAGE_CODE}}/mobile/mobifying.html">{% trans "\"Mobifying\" Your HTML5 Site" %}</a>
+        </h2>
+        <div>
+          <span class="date">March 3, 2011 &nbsp; {% trans "By:" %} {% simpleprofilelink ebidelman %}</span>
+          <span class="tag">mobile</span>
+        </div>
+        <div class="summary">{% blocktrans %}
+          A guide on how to create a mobile version of an existing HTML5 website. This study
+          looks at what was required to make html5rocks.com friendly to mobile users.
+        {% endblocktrans %}</div>
+        <div class="footer_links">
+          <span class="buttonlink">
+            <a href="/{{LANGUAGE_CODE}}/mobile/mobifying.html">{% trans "View tutorial" %}</a> &rArr;
+          </span>
+          <span class="browser_logos">
+            <span class="opera supported"></span>
+            <span class="ie supported"></span>
+            <span class="safari supported"></span>
+            <span class="ff supported"></span>
+            <span class="chrome supported"></span>
+          </span>
+        </div>
+      </article>
+
+      <article class="sample">
+        <h2 id="html5-canvas-text-effects" data-pubdate="2011-03-01">
+          <a href="/{{LANGUAGE_CODE}}/tutorials/canvas/texteffects/">{% trans "Typographic effects in canvas" %}</a>
+        </h2>
+        <div>
+          <span class="date">March 1, 2011 &nbsp; {% trans "By:" %} {% simpleprofilelink mdeal %}</span>
+          <span class="tag">canvas</span>
+          <span class="tag">webfonts</span>
+          <span class="tag">graphics</span>
+        </div>
+        <div class="summary">{% blocktrans %}
+          Effects in &lt;canvas&gt;; inner/outer shadows, neon-glows, reflections, space-age, pattern/gradient overlays, stereoscopic imaging, and other text/vector-effects&hellip;
+        {% endblocktrans %}</div>
+        <div class="footer_links">
+          <span class="buttonlink">
+            <a href="/{{LANGUAGE_CODE}}/tutorials/canvas/texteffects/">{% trans "View tutorial" %}</a> &rArr;
+          </span>
+          <span class="browser_logos">
+            <span class="opera supported"></span>
+            <span class="ie"></span>
+            <span class="safari supported"></span>
+            <span class="ff supported"></span>
+            <span class="chrome supported"></span>
+          </span>
+        </div>
+      </article>
+
+      <article class="sample">
+        <h2 id="improving-the-performance-of-your-html5-app" data-pubdate="2011-02-14">
+          <a href="/{{LANGUAGE_CODE}}/tutorials/speed/html5/">{% trans "Improving the Performance of your HTML5 App" %}</a>
+        </h2>
+        <div>
+          <span class="date">February 14, 2011 &nbsp; {% trans "By:" %} {% simpleprofilelink malteubl %}</span>
+          <span class="tag">performance</span>
+          <span class="tag">canvas</span>
+          <span class="tag">css</span>
+          <span class="tag">presentation</span>
+        </div>
+        <div class="summary">{% blocktrans %}
+          Optimization strategies and techniques for HTML5 applications.
+        {% endblocktrans %}</div>
+        <div class="footer_links">
+          <span class="buttonlink">
+            <a href="/{{LANGUAGE_CODE}}/tutorials/speed/html5/">{% trans "View tutorial" %}</a> &rArr;
+          </span>
+          <span class="browser_logos">
+            <span class="opera supported"></span>
+            <span class="ie supported"></span>
+            <span class="safari supported"></span>
+            <span class="ff supported"></span>
+            <span class="chrome supported"></span>
+          </span>
+        </div>
+      </article>
+
+      <article class="sample">
+        <h2 id="onslaught-arena" data-pubdate="2011-02-10">
+          <a href="/{{LANGUAGE_CODE}}/tutorials/casestudies/onslaught.html">{% trans "Case Study: Onslaught! Arena" %}</a>
+        </h2>
+        <div>
+          <span class="date">February 10, 2011 &nbsp; {% trans "By:" %} {% simpleprofilelink matthackett geoffblair %}</span>
+          <span class="tag">canvas</span>
+          <span class="tag">casestudy</span>
+          <span class="tag">games</span>
+        </div>
+        <div class="summary">{% blocktrans %}
+          Learn how <a href="https://chrome.google.com/webstore/detail/khodnfbkbanejphecblcofbghjdgfaih">Onslaught! Arena</a>
+          created their fast-paced, arcade-style medieval fantasy shoot 'em up.
+        {% endblocktrans %}</div>
+        <div class="footer_links">
+          <span class="buttonlink">
+            <a href="/{{LANGUAGE_CODE}}/tutorials/casestudies/onslaught.html">{% trans "View tutorial" %}</a> &rArr;
+          </span>
+          <span class="browser_logos">
+            <span class="opera supported"></span>
+            <span class="ie"></span>
+            <span class="safari supported"></span>
+            <span class="ff supported"></span>
+            <span class="chrome supported"></span>
+          </span>
+        </div>
+      </article>
+
+      <article class="sample">
+        <h2 id="html5-no-tears-html5-game" data-pubdate="2011-02-01">
+          <a href="/{{LANGUAGE_CODE}}/tutorials/canvas/notearsgame/">{% trans "No Tears Guide to HTML5 Games" %}</a>
+        </h2>
+        <div>
+          <span class="date">February 01, 2011 &nbsp; {% trans "By:" %} {% simpleprofilelink danielmoore %}</span>
+          <span class="tag">canvas</span>
+          <span class="tag">games</span>
+        </div>
+        <div class="summary">{% blocktrans %}
+          Building an HTML5 game using <code>&lt;canvas&gt;</code>, the no tears way.
+        {% endblocktrans %}</div>
+        <div class="footer_links">
+          <span class="buttonlink">
+            <a href="/{{LANGUAGE_CODE}}/tutorials/canvas/notearsgame/">{% trans "View tutorial" %}</a> &rArr;
+          </span>
+          <span class="browser_logos">
+            <span class="opera supported"></span>
+            <span class="ie"></span>
+            <span class="safari supported"></span>
+            <span class="ff supported"></span>
+            <span class="chrome supported"></span>
+          </span>
+        </div>
+      </article>
+
+      <article class="sample">
+        <h2 id="html5-mathboard" data-pubdate="2011-01-28">
+          <a href="/{{LANGUAGE_CODE}}/tutorials/casestudies/mathboard.html">{% trans "Case Study: HTML5 MathBoard" %}</a>
+        </h2>
+        <div>
+          <span class="date">January 28, 2011 &nbsp; {% trans "By:" %} {% simpleprofilelink jeremychone %}</span>
+          <span class="tag">casestudy</span>
+        </div>
+        <div class="summary">{% blocktrans %}
+          A discussion on how the iPad's popular <a href="https://chrome.google.com/webstore/detail/elcilkmmbpmchojdmdohhoalmfmkcklk">MathBoard</a>
+          application was ported to HTML5.
+        {% endblocktrans %}</div>
+        <div class="footer_links">
+          <span class="buttonlink">
+            <a href="/{{LANGUAGE_CODE}}/tutorials/casestudies/mathboard.html">{% trans "View tutorial" %}</a> &rArr;
+          </span>
+          <span class="browser_logos">
+            <span class="opera supported"></span>
+            <span class="ie"></span>
+            <span class="safari supported"></span>
+            <span class="ff supported"></span>
+            <span class="chrome supported"></span>
+          </span>
+        </div>
+      </article>
+
+
+    <article class="sample">
+      <h2 id="20-things-i-learned" data-pubdate="2011-01-20">
+        <a href="/{{LANGUAGE_CODE}}/tutorials/casestudies/20things_pageflip.html">{% trans "Case Study: Page Flip Effect from 20thingsilearned.com" %}</a>
+      </h2>
+      <div>
+        <span class="date">January 20, 2011 &nbsp; {% trans "By:" %} {% simpleprofilelink hakimelhattab %}</span>
+        <span class="tag">casestudy</span>
+        <span class="tag">canvas</span>
+      </div>
+      <div class="summary">{% blocktrans %}
+        Learn how to re-create the page flip effect found on
+        <a href="http://www.20thingsilearned.com">20thingsilearned.com</a> using the Canvas API.
+      {% endblocktrans %}</div>
+      <div class="footer_links">
+         <span class="buttonlink"><a href="/{{LANGUAGE_CODE}}/tutorials/casestudies/20things_pageflip.html">{% trans "View tutorial" %}</a>  &rArr;</span>
+         <span class="browser_logos">
+           <span class="opera supported"></span>
+           <span class="ie"></span>
+           <span class="safari supported"></span>
+           <span class="ff supported"></span>
+           <span class="chrome supported"></span>
+         </span>
+      </div>
+    </article>
+
+    <article class="sample">
+      <h2 id="filesystem" data-pubdate="2011-01-04">
+        <a href="/{{LANGUAGE_CODE}}/tutorials/file/filesystem/">{% trans "Exploring the FileSystem APIs" %}</a>
+      </h2>
+      <div>
+        <span class="date">January 4, 2010 &nbsp; {% trans "By:" %} {% simpleprofilelink ebidelman %}</span>
+        <span class="tag">file</span>
+        <span class="tag">filesystem</span>
+        <span class="tag">filewriter</span>
+        <span class="tag">storage</span>
+      </div>
+      <div class="summary">{% blocktrans %}
+        The FileSystem APIs give applications the ability to read/write files and directories
+        in a secure, sandboxed file system on a user's local machine.
+      {% endblocktrans %}</div>
+      <div class="footer_links">
+         <span class="buttonlink"><a href="/{{LANGUAGE_CODE}}/tutorials/file/filesystem/">{% trans "View tutorial" %}</a>  &rArr;</span>
+         <span class="browser_logos">
+           <span class="opera"></span>
+           <span class="ie"></span>
+           <span class="safari"></span>
+           <span class="ff"></span>
+           <span class="chrome supported"></span>
+         </span>
+      </div>
+    </article>
+
+    <article class="sample">
+      <h2 id="indexeddb-todo" data-pubdate="2010-12-20">
+        <a href="/{{LANGUAGE_CODE}}/tutorials/indexeddb/todo/">{% trans "A Simple TODO list using HTML5 IndexedDB" %}</a>
+      </h2>
+      <div>
+        <span class="date">December 20, 2010 &nbsp; {% trans "By:" %} {% simpleprofilelink paulkinlan %}</span>
+        <span class="tag">indexeddb</span>
+        <span class="tag">storage</span>
+      </div>
+      <div class="summary">{% blocktrans %}
+        IndexedDB represents the future of query-able client-side storage.  This
+        tutorial presents a real world application implementing the basics of
+        the IndexedDB API.
+      {% endblocktrans %}</div>
+      <div class="footer_links">
+         <span class="buttonlink">
+           <a href="/{{LANGUAGE_CODE}}/tutorials/indexeddb/todo/">{% trans "View tutorial" %}</a>
+          &rArr;</span>
+         <span class="browser_logos">
+           <span class="opera"></span>
+           <span class="ie"></span>
+           <span class="safari"></span>
+           <span class="ff supported"></span>
+           <span class="chrome supported"></span>
+         </span>
+      </div>
+    </article>
+
+    <article class="sample">
+      <h2 id="entanglement" data-pubdate="2010-12-14">
+        <a href="/{{LANGUAGE_CODE}}/tutorials/casestudies/entanglement.html">{% trans "Case Study: Getting Entangled with HTML5 Canvas" %}</a>
+      </h2>
+      <div>
+        <span class="date">December 14, 2010 &nbsp; {% trans "By:" %} {% simpleprofilelink derekdetweiler %}</span>
+        <span class="tag">canvas</span>
+        <span class="tag">casestudy</span>
+      </div>
+      <div class="summary">{% blocktrans %}
+        Entanglement is a puzzle game made by Gopherwood Studios. This article talks about Entanglement's
+        usage of the &lt;canvas&gt; tag.
+      {% endblocktrans %}</div>
+      <div class="footer_links">
+         <span class="buttonlink"><a href="/{{LANGUAGE_CODE}}/tutorials/casestudies/entanglement.html">{% trans "View tutorial" %}</a>  &rArr;</span>
+         <span class="browser_logos">
+           <span class="opera supported"></span>
+           <span class="ie"></span>
+           <span class="safari supported"></span>
+           <span class="ff supported"></span>
+           <span class="chrome supported"></span>
+         </span>
+      </div>
+    </article>
+
+    <article class="sample">
+      <h2 id="intro-sse" data-pubdate="2010-11-30">
+        <a href="/{{LANGUAGE_CODE}}/tutorials/eventsource/basics/">{% trans "Stream Updates with Server-Sent Events" %}</a>
+      </h2>
+      <div>
+        <span class="date">November 30, 2010 &nbsp; {% trans "By:" %} {% simpleprofilelink ebidelman %}</span>
+        <span class="tag">eventsource</span>
+        <span class="tag">performance</span>
+      </div>
+      <div class="summary">{% blocktrans %}
+        The EventSource API is designed for receiving push notifications from a server,
+        removing the need for client-size XHR polling.
+      {% endblocktrans %}</div>
+      <div class="footer_links">
+         <span class="buttonlink"><a href="/{{LANGUAGE_CODE}}/tutorials/eventsource/basics/">{% trans "View tutorial" %}</a>  &rArr;</span>
+         <span class="browser_logos">
+           <span class="opera supported"></span>
+           <span class="ie"></span>
+           <span class="safari supported"></span>
+           <span class="ff"></span>
+           <span class="chrome supported"></span>
+         </span>
+      </div>
+    </article>
+
+    <article class="sample">
+      <h2 id="intro-websockets" data-pubdate="2010-10-20">
+        <a href="/{{LANGUAGE_CODE}}/tutorials/websockets/basics/">{% trans "Introducing WebSockets: Bringing Sockets to the Web" %}</a>
+      </h2>
+      <div>
+        <span class="date">October 20, 2010 &nbsp; {% trans "By:" %} {% simpleprofilelink malteubl %}</span>
+        <span class="tag">websockets</span>
+      </div>
+      <div class="summary">{% blocktrans %}
+        Learn how to use WebSockets to add low latency bidirectional client-server communication to your web app.
+      {% endblocktrans %}</div>
+      <div class="footer_links">
+         <span class="buttonlink"><a href="/{{LANGUAGE_CODE}}/tutorials/websockets/basics/">{% trans "View tutorial" %}</a>  &rArr;</span>
+         <span class="browser_logos">
+           <span class="opera supported"></span>
+           <span class="ie"></span>
+           <span class="safari supported"></span>
+           <span class="ff supported"></span>
+           <span class="chrome supported"></span>
+         </span>
+      </div>
+    </article>
+
+    <article class="sample">
+      <h2 id="flexbox" data-pubdate="2010-10-05">
+        <a href="/{{LANGUAGE_CODE}}/tutorials/flexbox/quick/">{% trans "Quick hits with the Flexible Box Model" %}</a>
+      </h2>
+      <div>
+        <span class="date">October 5, 2010 &nbsp; {% trans "By:" %} {% simpleprofilelink paulirish %}</span>
+        <span class="tag">CSS</span>
+        <span class="tag">presentation</span>
+      </div>
+      <div class="summary">{% blocktrans %}
+        An introduction to <q>flexbox</q>, an alternative <abbr title="Cascading Style Sheets">CSS</abbr> layout scheme based on vboxes and hboxes.
+      {% endblocktrans %}</div>
+      <div class="footer_links">
+         <span class="buttonlink"><a href="/{{LANGUAGE_CODE}}/tutorials/flexbox/quick/">{% trans "View tutorial" %}</a> &rArr;</span>
+         <span class="browser_logos">
+           <span class="opera "></span>
+           <span class="ie "></span>
+           <span class="safari supported"></span>
+           <span class="ff supported"></span>
+           <span class="chrome supported"></span>
+         </span>
+      </div>
+    </article>
+
+    <article class="sample">
+      <h2 id="storage" data-pubdate="2010-10-01">
+        <a href="/{{LANGUAGE_CODE}}/tutorials/offline/storage/">{% trans "Client-Side Storage" %}</a>
+      </h2>
+      <div>
+        <span class="date">October 1, 2010 &nbsp; {% trans "By:" %} {% simpleprofilelink mahemoff %}</span>
+        <span class="tag">offline</span>
+        <span class="tag">webdatabase</span>
+        <span class="tag">storage</span>
+      </div>
+      <div class="summary">{% blocktrans %}
+        An overview of client-side storage techniques: Web Storage (local/session storage), Web SQL Database,
+        Indexed Database, File access.
+      {% endblocktrans %}</div>
+      <div class="footer_links">
+         <span class="buttonlink"><a href="/{{LANGUAGE_CODE}}/tutorials/offline/storage/">{% trans "View tutorial" %}</a> &rArr;</span>
+         <span class="browser_logos">
+           <span class="opera supported"></span>
+           <span class="ie supported"></span>
+           <span class="safari supported"></span>
+           <span class="ff supported"></span>
+           <span class="chrome supported"></span>
+         </span>
+      </div>
+    </article>
+
+    <article class="sample">
+      <h2 id="dnd-basics" data-pubdate="2010-09-30">
+        <a href="/{{LANGUAGE_CODE}}/tutorials/dnd/basics/">{% trans "Native HTML5 Drag and Drop" %}</a>
+      </h2>
+      <div>
+        <span class="date">September 30, 2010 &nbsp; {% trans "By:" %} {% simpleprofilelink ebidelman %}</span>
+        <span class="tag">dnd</span>
+        <span class="tag">filereader</span>
+      </div>
+      <div class="summary">{% blocktrans %}
+        Drag-and-drop is yet another first class citizen in HTML5! This article
+        explains how to enhance your web applications by adding native DnD functionality.
+      {% endblocktrans %}</div>
+      <div class="footer_links">
+         <span class="buttonlink"><a href="/{{LANGUAGE_CODE}}/tutorials/dnd/basics/">{% trans "View tutorial" %}</a> &rArr;</span>
+         <span class="browser_logos">
+           <span class="opera"></span>
+           <span class="ie supported"></span>
+           <span class="safari supported"></span>
+           <span class="ff supported"></span>
+           <span class="chrome supported"></span>
+         </span>
+      </div>
+    </article>
+
+    <article class="sample">
+      <h2 id="box-dnd" data-pubdate="2010-09-28">
+        <a href="/{{LANGUAGE_CODE}}/tutorials/casestudies/html5_in_deviantart_muro.html">{% trans "Case Study: HTML5 in deviantART muro" %}</a>
+      </h2>
+      <div>
+        <span class="date">September 28, 2010 &nbsp; {% trans "By:" %} {% simpleprofilelink michaeldewey %}</span>
+        <span class="tag">casestudy</span>
+        <span class="tag">canvas</span>
+        <span class="tag">svg</span>
+      </div>
+      <div class="summary">{% blocktrans %}
+        Learn how deviantART used HTML5 drawing features in deviantART muro.
+      {% endblocktrans %}</div>
+      <div class="footer_links">
+         <span class="buttonlink"><a href="/{{LANGUAGE_CODE}}/tutorials/casestudies/html5_in_deviantart_muro.html">{% trans "View article" %}</a> &rArr;</span>
+         <span class="browser_logos">
+           <span class="opera supported"></span>
+           <span class="ie"></span>
+           <span class="safari supported"></span>
+           <span class="ff supported"></span>
+           <span class="chrome supported"></span>
+         </span>
+      </div>
+    </article>
+
+    <article class="sample">
+      <h2 id="box-dnd" data-pubdate="2010-09-25">
+        <a href="/{{LANGUAGE_CODE}}/tutorials/casestudies/box_dnd_download.html">{% trans "Case Study: Drag and Drop Download in Chrome" %}</a>
+      </h2>
+      <div>
+        <span class="date">September 25, 2010 &nbsp; {% trans "By:" %} {% simpleprofilelink davidtong %}</span>
+        <span class="tag">casestudy</span>
+        <span class="tag">dnd</span>
+      </div>
+      <div class="summary">{% blocktrans %}
+        Learn how Box.net implemented GMail's attachment drag and drop to the desktop.
+      {% endblocktrans %}</div>
+      <div class="footer_links">
+         <span class="buttonlink"><a href="/{{LANGUAGE_CODE}}/tutorials/casestudies/box_dnd_download.html">{% trans "View article" %}</a> &rArr;</span>
+         <span class="browser_logos">
+           <span class="opera"></span>
+           <span class="ie"></span>
+           <span class="safari"></span>
+           <span class="ff"></span>
+           <span class="chrome supported"></span>
+         </span>
+      </div>
+    </article>
+
+    <article class="sample">
+      <h2 id="css3-3d" data-pubdate="2010-09-07">
+        <a href="/{{LANGUAGE_CODE}}/tutorials/3d/css/">{% trans "3D and CSS" %}</a>
+      </h2>
+      <div>
+        <span class="date">September 7, 2010 &nbsp; {% trans "By:" %} {% simpleprofilelink paulkinlan %}</span>
+        <span class="tag">3D</span>
+        <span class="tag">CSS</span>
+        <span class="tag">presentation</span>
+        <span class="tag">graphics</span>
+      </div>
+      <div class="summary">{% blocktrans %}
+        Learn how to build exciting 3D user interfaces using the power of CSS.
+      {% endblocktrans %}</div>
+      <div class="footer_links">
+         <span class="buttonlink"><a href="/{{LANGUAGE_CODE}}/tutorials/3d/css/">{% trans "View tutorial" %}</a> &rArr;</span>
+         <span class="browser_logos">
+           <span class="opera"></span>
+           <span class="ie"></span>
+           <span class="safari supported"></span>
+           <span class="ff supported"></span>
+           <span class="chrome supported"></span>
+         </span>
+      </div>
+    </article>
+
+    <article class="sample">
+      <h2 id="video-basics" data-pubdate="2010-08-03">
+        <a href="/{{LANGUAGE_CODE}}/tutorials/video/basics/">{% trans "HTML5 Video" %}</a>
+      </h2>
+      <div>
+        <span class="date">August 3, 2010 &nbsp; {% trans "By:" %} {% simpleprofilelink ernestd %}</span>
+        <span class="tag">video</span>
+        <span class="tag">multimedia</span>
+        <span class="tag">graphics</span>
+      </div>
+      <div class="summary">{% blocktrans %}
+        Video is one of the most interesting and widely supported features of HTML5.
+        This tutorial covers the mechanics of incorporating native video into your site
+        (without a plugin) and gives interesting examples of using the &lt;video&gt; tag.
+      {% endblocktrans %}</div>
+      <div class="footer_links">
+         <span class="buttonlink"><a href="/{{LANGUAGE_CODE}}/tutorials/video/basics/">{% trans "View tutorial" %}</a> &rArr;</span>
+         <span class="browser_logos">
+           <span class="opera supported"></span>
+           <span class="ie"></span>
+           <span class="safari supported"></span>
+           <span class="ff supported"></span>
+           <span class="chrome supported"></span>
+         </span>
+      </div>
+    </article>
+
+    <article class="sample">
+      <h2 id="offline-the-why" data-pubdate="2010-08-02">
+        <a href="/{{LANGUAGE_CODE}}/tutorials/offline/whats-offline/">{% trans "\"Offline\": What does it mean and why should I care?" %}</a>
+      </h2>
+      <div>
+        <span class="date">August 2, 2010 &nbsp; {% trans "By:" %} {% simpleprofilelink mahemoff %}</span>
+        <span class="tag">offline</span>
+        <span class="tag">performance</span>
+      </div>
+      <div class="summary">{% blocktrans %}
+        A discussion of what it means to take an application "offline" and the options available
+        to developers for doing so.
+      {% endblocktrans %}</div>
+      <div class="footer_links">
+         <span class="buttonlink"><a href="/{{LANGUAGE_CODE}}/tutorials/offline/whats-offline/">{% trans "View tutorial" %}</a> &rArr;</span>
+         <span class="browser_logos">
+           <span class="opera supported"></span>
+           <span class="ie supported"></span>
+           <span class="safari supported"></span>
+           <span class="ff supported"></span>
+           <span class="chrome supported"></span>
+         </span>
+      </div>
+    </article>
+
+    <article class="sample">
+      <h2 id="webfonts" data-pubdate="2010-08-02">
+        <a href="/{{LANGUAGE_CODE}}/tutorials/webfonts/quick/">{% trans "Quick guide to webfonts via @font-face" %}</a>
+      </h2>
+      <div>
+        <span class="date">August 2, 2010 &nbsp; {% trans "By:" %} {% simpleprofilelink paulirish %}</span>
+        <span class="tag">webfonts</span>
+        <span class="tag">CSS</span>
+        <span class="tag">presentation</span>
+      </div>
+      <div class="summary">{% blocktrans %}
+        Webfonts give new typographic freedom to designers while retaining scalability and accessibility.
+      {% endblocktrans %}</div>
+      <div class="footer_links">
+         <span class="buttonlink"><a href="/{{LANGUAGE_CODE}}/tutorials/webfonts/quick/">{% trans "View tutorial" %}</a> &rArr;</span>
+         <span class="browser_logos">
+           <span class="opera supported"></span>
+           <span class="ie supported"></span>
+           <span class="safari supported"></span>
+           <span class="ff supported"></span>
+           <span class="chrome supported"></span>
+         </span>
+      </div>
+    </article>
+
+    <article class="sample">
+      <h2 id="chrome-devtools-audit-panel" data-pubdate="2010-07-28">
+        <a href="/{{LANGUAGE_CODE}}/tutorials/developertools/auditpanel/">{% trans "Auditing Your Web App For Speed" %}</a>
+      </h2>
+      <div>
+        <span class="date">July 28, 2010 &nbsp; {% trans "By:" %} {% simpleprofilelink sethladd %}</span>
+        <span class="tag">devtools</span>
+        <span class="tag">performance</span>
+      </div>
+      <div class="summary">{% blocktrans %}
+        The Audit Panel is an excellent tool for examining latency in your web apps. It offers customized recommendations to
+        enhance performance and reduce latency.
+      {% endblocktrans %}</div>
+      <div class="footer_links">
+         <span class="buttonlink"><a href="/{{LANGUAGE_CODE}}/tutorials/developertools/auditpanel/">{% trans "View tutorial" %}</a> &rArr;</span>
+         <span class="browser_logos">
+           <span class="opera"></span>
+           <span class="ie"></span>
+           <span class="safari"></span>
+           <span class="ff"></span>
+           <span class="chrome supported"></span>
+         </span>
+      </div>
+    </article>
+
+    <article class="sample">
+      <h2 id="web-workers" data-pubdate="2010-07-26">
+        <a href="/{{LANGUAGE_CODE}}/tutorials/workers/basics/">{% trans "The Basics of Web Workers" %}</a>
+      </h2>
+      <div>
+        <span class="date">July 26, 2010 &nbsp; {% trans "By:" %} {% simpleprofilelink ebidelman %}</span>
+        <span class="tag">performance</span>
+        <span class="tag">workers</span>
+      </div>
+      <div class="summary">{% blocktrans %}
+        Web Workers are a means of spawning background scripts in your application,
+        giving thread-like message passing for handling computationally intensive tasks.
+      {% endblocktrans %}</div>
+      <div class="footer_links">
+         <span class="buttonlink"><a href="/{{LANGUAGE_CODE}}/tutorials/workers/basics/">{% trans "View tutorial" %}</a> &rArr;</span>
+         <span class="browser_logos">
+           <span class="opera supported"></span>
+           <span class="ie"></span>
+           <span class="safari supported"></span>
+           <span class="ff supported"></span>
+           <span class="chrome supported"></span>
+         </span>
+      </div>
+    </article>
+
+    <article class="sample">
+      <h2 id="chrome-devtools-part1" data-pubdate="2010-06-18">
+        <a href="/{{LANGUAGE_CODE}}/tutorials/developertools/part1/">{% trans "Introduction to Chrome Developer Tools, Part One" %}</a>
+      </h2>
+      <div>
+        <span class="date">June 18, 2010 &nbsp; {% trans "By:" %} {% simpleprofilelink sethladd %}</span>
+        <span class="tag">devtools</span>
+        <span class="tag">performance</span>
+      </div>
+      <div class="summary">{% blocktrans %}
+        An introduction to the tools available in Google Chrome that make a developer's life easier!
+      {% endblocktrans %}</div>
+      <div class="footer_links">
+         <span class="buttonlink"><a href="/{{LANGUAGE_CODE}}/tutorials/developertools/part1/">{% trans "View tutorial" %}</a> &rArr;</span>
+         <span class="browser_logos">
+           <span class="opera"></span>
+           <span class="ie"></span>
+           <span class="safari supported"></span>
+           <span class="ff"></span>
+           <span class="chrome supported"></span>
+         </span>
+      </div>
+    </article>
+
+    <article class="sample">
+      <h2 id="best-practices-faster-web" data-pubdate="2010-06-18">
+        <a href="/{{LANGUAGE_CODE}}/tutorials/speed/quick/">{% trans "Best Practices for a Faster Web App with HTML5" %}</a>
+      </h2>
+      <div>
+        <span class="date">June 18, 2010 &nbsp; {% trans "By:" %} {% simpleprofilelink paulirish %}</span>
+        <span class="tag">appcache</span>
+        <span class="tag">offline</span>
+        <span class="tag">performance</span>
+        <span class="tag">webdatabase</span>
+      </div>
+      <div class="summary">{% blocktrans %}
+        How to effectively use features from HTML5 to improve the performance and responsiveness of your app.
+      {% endblocktrans %}</div>
+      <div class="footer_links">
+         <span class="buttonlink"><a href="/{{LANGUAGE_CODE}}/tutorials/speed/quick/">{% trans "View tutorial" %}</a> &rArr;</span>
+         <span class="browser_logos">
+           <span class="opera supported"></span>
+           <span class="ie supported"></span>
+           <span class="safari supported"></span>
+           <span class="ff supported"></span>
+           <span class="chrome supported"></span>
+         </span>
+      </div>
+    </article>
+
+    <article class="sample">
+      <h2 id="intro-appcache" data-pubdate="2010-06-18">
+        <a href="/{{LANGUAGE_CODE}}/tutorials/appcache/beginner/">{% trans "A Beginner's Guide to Using the Application Cache" %}</a>
+      </h2>
+      <div>
+        <span class="date">June 18, 2010 &nbsp; {% trans "By:" %} {% simpleprofilelink ebidelman %}</span>
+        <span class="tag">appcache</span>
+        <span class="tag">offline</span>
+        <span class="tag">performance</span>
+      </div>
+      <div class="summary">{% blocktrans %}
+        A step-by-step guide to taking your web app offline using the application cache APIs.
+      {% endblocktrans %}</div>
+      <div class="footer_links">
+         <span class="buttonlink"><a href="/{{LANGUAGE_CODE}}/tutorials/appcache/beginner/">{% trans "View tutorial" %}</a> &rArr;</span>
+         <span class="browser_logos">
+           <span class="opera supported"></span>
+           <span class="ie"></span>
+           <span class="safari supported"></span>
+           <span class="ff supported"></span>
+           <span class="chrome supported"></span>
+         </span>
+      </div>
+    </article>
+
+    <article class="sample">
+      <h2 id="todolist-offline" data-pubdate="2010-06-18">
+        <a href="/{{LANGUAGE_CODE}}/tutorials/offline/takingappoffline/">{% trans "Practical Guide to Take Your TODO List Offline" %}</a>
+      </h2>
+      <div>
+        <span class="date">June 18, 2010 &nbsp; {% trans "By:" %} {% simpleprofilelink paulkinlan %}</span>
+        <span class="tag">appcache</span>
+        <span class="tag">offline</span>
+      </div>
+      <div class="summary">{% blocktrans %}
+        Expanding on the <a href="/{{LANGUAGE_CODE}}/tutorials/webdatabase/todo/">simple TODO list</a>, this tutorial
+        gives a practical guide for taking the sample offline using the application cache.
+      {% endblocktrans %}</div>
+      <div class="footer_links">
+         <span class="buttonlink"><a href="/{{LANGUAGE_CODE}}/tutorials/offline/takingappoffline/">{% trans "View tutorial" %}</a> &rArr;</span>
+         <span class="browser_logos">
+           <span class="opera supported"></span>
+           <span class="ie"></span>
+           <span class="safari supported"></span>
+           <span class="ff supported"></span>
+           <span class="chrome supported"></span>
+         </span>
+      </div>
+    </article>
+
+    <article class="sample">
+      <h2 id="reading-files-js" data-pubdate="2010-06-18">
+        <a href="/{{LANGUAGE_CODE}}/tutorials/file/dndfiles/">{% trans "Reading files in JavaScript using the File APIs" %}</a>
+      </h2>
+      <div>
+        <span class="date">June 18, 2010 &nbsp; {% trans "By:" %} {% simpleprofilelink ebidelman %}</span>
+        <span class="tag">dnd</span>
+        <span class="tag">file</span>
+        <span class="tag">filereader</span>
+      </div>
+      <div class="summary">{% blocktrans %}
+        Starter guide for using the File/FileList/FileReader APIs to process
+        and read binary files in JavaScript.
+      {% endblocktrans %}</div>
+      <div class="footer_links">
+         <span class="buttonlink"><a href="/{{LANGUAGE_CODE}}/tutorials/file/dndfiles/">{% trans "View tutorial" %}</a>  &rArr;</span>
+         <span class="browser_logos">
+           <span class="opera supported"></span>
+           <span class="ie"></span>
+           <span class="safari"></span>
+           <span class="ff supported"></span>
+           <span class="chrome supported"></span>
+         </span>
+      </div>
+    </article>
+
+    <article class="sample">
+      <h2 id="geolocation-tripmeter" data-pubdate="2010-05-24">
+        <a href="/{{LANGUAGE_CODE}}/tutorials/geolocation/trip_meter/">{% trans "A Simple Trip Meter using the Geolocation API" %}</a>
+      </h2>
+      <div>
+        <span class="date">May 24, 2010 &nbsp; {% trans "By:" %} {% simpleprofilelink mahemoff %}</span>
+        <span class="tag">geolocation</span>
+      </div>
+      <div class="summary">{% blocktrans %}
+        Learn how to implement geolocation very quickly including a distance calculator
+      {% endblocktrans %}</div>
+      <div class="footer_links">
+         <span class="buttonlink"><a href="/{{LANGUAGE_CODE}}/tutorials/geolocation/trip_meter/">{% trans "View tutorial" %}</a>  &rArr;</span>
+         <span class="browser_logos">
+           <span class="opera supported"></span>
+           <span class="ie"></span>
+           <span class="safari supported"></span>
+           <span class="ff supported"></span>
+           <span class="chrome supported"></span>
+         </span>
+      </div>
+    </article>
+
+    <article class="sample">
+      <h2 id="intro-noticiations-api" data-pubdate="2010-02-24">
+        <a href="/{{LANGUAGE_CODE}}/tutorials/notifications/quick/">{% trans "Using the Notifications API" %}</a>
+      </h2>
+      <div>
+        <span class="date">February 24, 2010 &nbsp; {% trans "By:" %} {% simpleprofilelink ernestd %}</span>
+        <span class="tag">notifications</span>
+      </div>
+      <div class="summary">{% blocktrans %}
+        Learn the notification basics creating a twitter notification
+      {% endblocktrans %}</div>
+      <div class="footer_links">
+         <span class="buttonlink"><a href="/{{LANGUAGE_CODE}}/tutorials/notifications/quick/">{% trans "View tutorial" %}</a>  &rArr;</span>
+         <span class="browser_logos">
+           <span class="opera"></span>
+           <span class="ie"></span>
+           <span class="safari"></span>
+           <span class="ff"></span>
+           <span class="chrome supported"></span>
+         </span>
+      </div>
+    </article>
+
+    <article class="sample">
+      <h2 id="todolist-webdb" data-pubdate="2010-02-17">
+        <a href="/{{LANGUAGE_CODE}}/tutorials/webdatabase/todo/">{% trans "A Simple TODO list using HTML5 WebDatabases" %}</a>
+      </h2>
+      <div>
+        <span class="date">February 17, 2010 &nbsp; {% trans "By:" %} {% simpleprofilelink paulkinlan %}</span>
+        <span class="tag">webdatabase</span>
+        <span class="tag">offline</span>
+        <span class="tag">performance</span>
+      </div>
+      <div class="summary">{% blocktrans %}
+        Create a TODO list which persists data using a client side database.
+      {% endblocktrans %}</div>
+      <div class="footer_links">
+         <span class="buttonlink"><a href="/{{LANGUAGE_CODE}}/tutorials/webdatabase/todo/">{% trans "View tutorial" %}</a>  &rArr;</span>
+         <span class="browser_logos">
+           <span class="opera supported"></span>
+           <span class="ie"></span>
+           <span class="safari supported"></span>
+           <span class="ff"></span>
+           <span class="chrome supported"></span>
+         </span>
+      </div>
+    </article>
+
+    <article class="sample">
+      <h2 id="quick-guide-audio-tag" data-pubdate="2010-02-05">
+        <a href="/{{LANGUAGE_CODE}}/tutorials/audio/quick/">{% trans "Quick Guide to Implementing the HTML5 Audio Tag" %}</a>
+      </h2>
+      <div>
+        <span class="date">February 5, 2010 &nbsp; {% trans "By:" %} {% simpleprofilelink ernestd %}</span>
+        <span class="tag">audio</span>
+        <span class="tag">flash</span>
+        <span class="tag">multimedia</span>
+      </div>
+      <div class="summary">{% blocktrans %}
+        Learn how to use the HTML5 audio tag and fall back to Flash on
+        platforms which do not support it.
+      {% endblocktrans %}</div>
+      <div class="footer_links">
+         <span class="buttonlink"><a href="/{{LANGUAGE_CODE}}/tutorials/audio/quick/">{% trans "View tutorial" %}</a>  &rArr;</span>
+         <span class="browser_logos">
+           <span class="opera supported"></span>
+           <span class="ie"></span>
+           <span class="safari supported"></span>
+           <span class="ff supported"></span>
+           <span class="chrome supported"></span>
+         </span>
+      </div>
+    </article>
+
+  </div>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('.tag').click(filterTag);
+      if (document.location.hash) {
+        // Hide all samples as soon as DOM is loaded to prevent flicker effect.
+        samples.addClass('hidden');
+        filterTag(document.location.hash.substring(1));
+      }
+    });
+
+    var samples = $('.sample'); // Cache DOM lookup.
+    var filter = $('#filter');
+
+    function clearFilter() {
+      $('.sample.hidden').removeClass('hidden');
+      filter.addClass('hidden');
+      if (!!window.history) {
+        history.replaceState({}, document.title, '/tutorials');
+      } else {
+        document.location.hash = '';
+      }
+    };
+
+    function filterTag(opt_tag) {
+      var tag = typeof opt_tag == 'string' ? opt_tag : $(this).text();
+      document.location.hash = tag;
+      if (tag) {
+        samples.addClass('hidden');
+        $.each( tag.split(','), function(i, eachtag) {
+          samples.find('span.tag:contains("' + eachtag + '")').closest('.sample').removeClass('hidden');
+        });
+        $('#filter_tag').text(tag);
+        filter.removeClass('hidden');
+        window.scrollTo(0, 0);
+      }
+    };
+
+    // Adds back button support.
+    if (window.addEventListener) {
+      window.addEventListener('hashchange', function(e) {
+        filterTag(document.location.hash.substring(1));
+        if (window._gaq) {
+          _gaq.push(['_trackPageview', document.location.href]);
+        }
+      }, false);
+    }
+  </script>
+{% endblock %}
