@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+<html{% block manifest %}{% if is_mobile and prod %} manifest="/cache.appcache"{% endif %}{% endblock %} lang="{{LANGUAGE_CODE}}" dir="{{LANGUAGE_BIDI|yesno:"rtl,ltr"}}">
+<head>
+  <meta charset="utf-8" />
+  <!-- Copyright (c) 2011 Google Inc.
+   *
+   * Licensed under the Apache License, Version 2.0 (the "License");
+   * you may not use this file except in compliance with the License.
+   * You may obtain a copy of the License at
+   *
+   *     http://www.apache.org/licenses/LICENSE-2.0
+   *
+   * Unless required by applicable law or agreed to in writing, software
+   * distributed under the License is distributed on an "AS IS" BASIS,
+   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   * See the License for the specific language governing permissions and
+   * limitations under the License.
+   *
+   * Author: {% block headauthor %}{% endblock %}
+   *
+   * {% block credits %}{% endblock %}
+   *
+  -->
+  <meta name="description" content="{% block meta_description %}{% trans "A resource for developers looking to put HTML5 to use today, including information on specific features and when to use them in your apps." %}{% endblock %}" />
+  <meta name="keywords" content="{% trans "html5,html 5,html5 demos,html5 examples,javascript,css3,notifications,geolocation,web workers,apppcache,file api,filereader,offline,audio,video,drag and drop,chrome" %}" />
+  <title>{% trans "HTML5 Rocks" %} - {% block headtitle %}{% trans "A resource for open web HTML5 developers" %}{% endblock %}</title>
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="stylesheet" media="all" href="/static/css/base{% if prod %}.min{% endif %}.css" />
+  <link rel="stylesheet" media="only screen and (max-width: 800px)" href="/static/css/mobile{% if prod %}.min{% endif %}.css" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+
+  <!-- iOS: run in full-screen mode and display upper status bar as translucent -->
+  <!--<meta name="apple-mobile-web-app-capable" content="yes" /> 
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />-->
+
+  <link rel="apple-touch-icon" href="/static/images/identity/HTML5_Badge_64.png" />
+  <link rel="apple-touch-icon-precomposed" href="/static/images/identity/HTML5_Badge_64.png" />
+  
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5-els.js"></script>
+  <![endif]-->
+
+  {% block head %}{% endblock %}
+</head>
+<body onload="{% block onload %}{% endblock %}">
+  <div id="wrap">
+    <div id="content">
+      <header>
+        <div>
+          <h1 id="title">
+            <a href="/{{LANGUAGE_CODE}}/" title="{% trans "HTML5 Rocks Logo" %}"><span class="normal">{% trans "HTML" %}</span><img src="/static/images/identity/HTML5_Badge_64.png" alt=""><span class="rocks">{% trans "Rocks" %}</span></a>
+          </h1>
+          <nav>
+            <ul>
+              <li><a href="http://slides.html5rocks.com" target="_blank">{% trans "Presentation" %}</a></li>
+              <li><a href="http://playground.html5rocks.com">{% trans "Playground" %}</a></li>
+              <li><a href="http://studio.html5rocks.com">{% trans "Studio" %}</a></li>
+              <li><a href="/{{LANGUAGE_CODE}}/tutorials/" {% ifequal current 'tutorials' %}class="current"{% endifequal %}>{% trans "Tutorials" %}</a></li>
+              <li><a href="/{{LANGUAGE_CODE}}/resources.html" {% ifequal current 'resources' %}class="current"{% endifequal %}>{% trans "Resources" %}</a></li>
+            </ul>
+          </nav>
+        </div>
+        <form action="/{{LANGUAGE_CODE}}/search" id="cse-search-box">
+          <div>
+            <input type="hidden" name="cx" value="007435387813601113811:ef_kuvvx6a8" />
+            <input type="hidden" name="cof" value="FORID:9" />
+            <input type="hidden" name="ie" value="UTF-8" />
+            <input type="hidden" name="hl" value="{{LANGUAGE_CODE}}" />
+            <input type="search" name="q" id="q" autocomplete="off" placeholder="{% trans "Search HTML5Rocks" %}"/>
+          </div>
+        </form>
+      </header>
+
+      {% block body %}{% endblock %}
+
+      <footer>
+        <span>
+          <a href="http://www.w3.org/html/logo/">
+            <img src="/static/images/identity/HTML5_Badge_64.png" align="left" title="{% trans "HTML5 Logo" %}" alt="{% trans "HTML5 Logo" %}" class="footer-badge"/>
+          </a>
+        </span>
+        <span>
+          <a href="/{{LANGUAGE_CODE}}/tos.html" {% ifequal current 'tos' %}class="current"{% endifequal %}>{% trans "Terms" %}</a> -
+          <a href="/{{LANGUAGE_CODE}}/privacy.html" {% ifequal current 'privacy' %}class="current"{% endifequal %}>{% trans "Privacy" %}</a> -
+          <a href="http://goo.gl/mod/YmGX">{% trans "Make a Suggestion" %}</a> - 
+          <a href="http://code.google.com/p/html5rocks/issues/entry">{% trans "Report Bug" %}</a> - 
+          <a href="http://twitter.com/ChromiumDev">{% trans "Follow us on Twitter" %}</a> -
+          <a href="/{{LANGUAGE_CODE}}/profiles" {% ifequal current 'profiles' %}class="current"{% endifequal %}>{% trans "About Authors" %}</a>
+        </span>
+        <span class="madeby">{% trans "Made by Google" %}| <img src="/static/images/google_logo_small.png" width="50" height="20" alt="" /></span>
+        <p>{% trans "This site contains information on APIs that are not part of the W3C HTML5 specification." %}</p>
+      </footer>
+
+    </div>
+  </div>
+  <script type="text/javascript" src="//www.google.com/jsapi?autoload=%7B%22modules%22%3A%5B%7B%22name%22%3A%22search%22%2C%22version%22%3A%221%22%7D%5D%7D"></script>
+  <script>
+    (function() {
+      {% if is_mobile %}
+        // Hides mobile browser's address bar when page is done loading.
+        window.addEventListener('load', function(e) {
+          setTimeout(function() { window.scrollTo(0, 1); }, 1);
+        }, false);
+      {% endif %}
+
+      // Check if new appcache is available.
+      if (window.applicationCache) {
+        window.applicationCache.addEventListener('updateready', function(e) {
+          if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+            window.applicationCache.swapCache();
+            if (confirm('{% trans "A new version of this site is available. Load it?" %}')) {
+              window.location.reload();
+            }
+          }
+        }, false);
+     }
+
+      function isCompatible() {
+        {% block iscompatible %}
+        return null;
+        {% endblock %}
+      }
+
+      if (isCompatible() === false) {
+        document.getElementById('notcompatible').className = '';
+      } else if (isCompatible() === true) {
+        document.getElementById('compatible').className = '';
+      }
+
+      var q = document.getElementById('q');
+
+      google.search.CustomSearchControl.attachAutoCompletion(
+          '007435387813601113811:ef_kuvvx6a8', q, 'cse-search-box');
+
+      q.addEventListener('keydown', function(e) {
+        if (e.keyCode == 13) { // enter key
+          document.getElementById('cse-search-box').submit();
+        }
+      }, false);
+
+      // Kill feedburner and marketing tracking arguments cuz they're ugly.
+      if (/^\?utm_/.test(document.location.search) &&
+          window.history.replaceState) {
+        window.history.replaceState(
+            {}, '', document.location.href.replace(/\?utm_.*/, ''));
+      }
+    })();
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-15028909-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+      var ga = document.createElement('script');
+      ga.type = 'text/javascript';
+      ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+</body>
+</html>
